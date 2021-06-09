@@ -5,7 +5,6 @@ const HomePage = (): JSX.Element => {
     <>
       <Head>
         <title>Audiophile e-commerce website</title>
-        <link rel="icon" href="../public/favicon-32x32.png" />
       </Head>
       <h1>Hello</h1>
     </>
