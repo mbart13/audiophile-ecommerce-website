@@ -109,7 +109,7 @@ ol {
 }
 
 body {
-  font-family: "Manrope", sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-size: 0.9375rem;
   color: var(--color-black);
   background-color: var(--color-bg);
