@@ -6,7 +6,7 @@ import theme from '../styles/theme'
 
 export default function App({ Component, pageProps }: AppProps): JSX.Element {
   return (
-    <ChakraProvider theme={theme}>
+    <ChakraProvider theme={theme} resetCSS>
       <Component {...pageProps} />
     </ChakraProvider>
   )

@@ -1,4 +1,6 @@
 import Head from 'next/head'
+import { Button, Container } from '@chakra-ui/react'
+import Header from 'components/organisms/Header'
 
 const HomePage = (): JSX.Element => {
   return (
@@ -6,7 +8,7 @@ const HomePage = (): JSX.Element => {
       <Head>
         <title>Audiophile e-commerce website</title>
       </Head>
-      <h1>Hello</h1>
+      <Header />
     </>
   )
 }
