@@ -37,6 +37,9 @@ const theme = extendTheme({
       'h1, h2, h3': {
         textTransform: 'uppercase',
       },
+      ul: {
+        listStyleType: 'none',
+      },
     },
   },
 })

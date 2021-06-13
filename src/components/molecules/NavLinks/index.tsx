@@ -18,7 +18,7 @@ const NavLinks = (): JSX.Element => {
           fontWeight="bold"
           _hover={{ color: 'accent' }}
           transition="color 0.2s linear"
-          letterSpacing="2px"
+          letterSpacing="0.125em"
           key={link.id}
           color="white"
           textTransform="uppercase"
