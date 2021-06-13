@@ -1,4 +1,4 @@
-import { Stack, Box, Heading, Image, Text, Flex } from '@chakra-ui/react'
+import { Stack } from '@chakra-ui/react'
 
 import CategoryLink from 'components/molecules/CategoryLink'
 import { links } from 'utils/links'
