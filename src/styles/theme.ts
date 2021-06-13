@@ -1,67 +1,41 @@
 import { extendTheme } from '@chakra-ui/react'
 
+import Button from './components/button'
+
 const theme = extendTheme({
   colors: {
     bg: '#fafafa',
     accent: '#d87d4a',
-    accentHover: '#fbaf85',
+    accentLight: '#fbaf85',
     gray: '#f1f1f1',
     white: '#fff',
-    black: '#000',
+    black: '#191919',
     text: 'rgba(0,0,0,0.5)',
+    textHero: 'rgba(255,255,255,0.5)',
+    divider: 'rgba(255,255,255,0.1)',
   },
   fonts: {
     body: `'Manrope', sans-serif`,
   },
-  breakpoints: ['43.75rem', '70rem'],
   sizes: {
     container: {
       lg: '69.375rem',
     },
   },
   components: {
-    Button: {
-      baseStyle: {
-        fontWeight: 'bold',
-        textTransform: 'uppercase',
-        borderRadius: 0,
-      },
-      sizes: {
-        regular: {
-          px: 8,
-          py: 3.5,
-          fontSize: '0.8125rem',
-        },
-      },
-      variants: {
-        primary: {
-          bg: 'accent',
-          color: 'white',
-          _hover: {
-            bg: 'accentHover',
-          },
-        },
-        secondary: {
-          bg: 'transparent',
-          color: 'black',
-          border: '1px solid black',
-          _hover: {
-            bg: 'black',
-            color: 'white',
-          },
-        },
-      },
-      defaultProps: {
-        variant: 'primary',
-        size: 'regular',
-      },
-    },
+    Button,
+  },
+  shadows: {
+    outline: 'none',
   },
   styles: {
     global: {
       body: {
         bg: 'bg',
         color: 'black',
+      },
+      'h1, h2, h3': {
+        textTransform: 'uppercase',
       },
     },
   },
