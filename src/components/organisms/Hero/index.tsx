@@ -1,17 +1,14 @@
 import { Box, Container, Heading, Text, Button, Image } from '@chakra-ui/react'
-import { url } from 'inspector'
 
 const Hero = (): JSX.Element => {
   return (
-    <Container
-      maxW="container.lg"
-      px={6}
+    <Box
       pt={['6rem', '8rem', null, '10rem']}
       pb="7rem"
       textAlign={['center', null, null, 'left']}
     >
       <Image
-        srcSet="/images/home/mobile/image-hero.jpg 500w,
+        srcSet="/images/home/mobile/image-hero.jpg 300w,
         /images/home/tablet/image-hero.jpg 1000w,
         /images/home/desktop/image-hero.jpg 1440w"
         objectFit="cover"
@@ -54,7 +51,7 @@ const Hero = (): JSX.Element => {
         for the passionate music enthusiast.
       </Text>
       <Button>See Product</Button>
-    </Container>
+    </Box>
   )
 }
 

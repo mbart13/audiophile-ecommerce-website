@@ -2,16 +2,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Box } from '@chakra-ui/react'
 
-// const StyledLink = styled.a`
-//   @media (min-width: ${breakpoints.tablet}) {
-//     margin-right: auto;
-//   }
-
-//   @media (min-width: ${breakpoints.desktop}) {
-//     margin-right: 0;
-//   }
-// `
-
 const Logo = (): JSX.Element => {
   return (
     <Box
