@@ -7,7 +7,7 @@ const NavLinks = (): JSX.Element => {
   return (
     <HStack
       as="ul"
-      display={['none', 'none', 'none', 'flex']}
+      display={{ base: 'none', lg: 'flex' }}
       spacing={9}
       listStyleType="none"
     >

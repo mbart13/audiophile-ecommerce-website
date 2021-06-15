@@ -40,8 +40,8 @@ const CategoryLink = ({
             <Heading
               as="h2"
               mb="1rem"
-              fontSize={['0.9375rem', null, null, '1.125rem']}
-              letterSpacing={['0.0669em', null, null, '0.0806em']}
+              fontSize={{ base: '0.9375rem', lg: '1.125rem' }}
+              letterSpacing={{ base: '0.0669em', lg: '0.0806em' }}
             >
               {text}
             </Heading>

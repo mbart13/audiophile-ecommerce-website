@@ -5,9 +5,9 @@ import { Box } from '@chakra-ui/react'
 const Logo = (): JSX.Element => {
   return (
     <Box
-      mr={[null, 'auto', null, 0]}
+      mr={{ sm: 'auto', lg: 0 }}
       lineHeight="0"
-      ml={[0, '2.625rem', null, 0]}
+      ml={{ sm: '2.625rem', lg: 0 }}
     >
       <Link href="/">
         <a>

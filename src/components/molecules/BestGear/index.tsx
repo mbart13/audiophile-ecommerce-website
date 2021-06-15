@@ -1,5 +1,4 @@
 import { Box, Heading, Image, Stack, Text } from '@chakra-ui/react'
-// import Text from 'components/atoms/Text'
 
 const BestGear = (): JSX.Element => {
   return (
@@ -32,7 +31,7 @@ const BestGear = (): JSX.Element => {
           sx={{ '& span': { color: 'accent' } }}
           mb={{ base: '2rem', sm: '2.5rem' }}
           letterSpacing="0.0894rem"
-          maxWidth={{ base: '20ch', sm: '25ch' }}
+          maxWidth={{ base: '20ch', sm: '25ch', lg: '22ch' }}
           mx={{ base: 'auto', lg: 'unset' }}
           fontSize={{ base: '1.75rem' }}
         >

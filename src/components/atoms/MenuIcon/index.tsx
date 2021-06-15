@@ -12,7 +12,7 @@ const MenuIcon = (): JSX.Element => {
       isRound={true}
       lineHeight={0}
       onClick={() => setIsMenuOpen(state => !state)}
-      display={['block', null, null, 'none']}
+      display={{ base: 'auto', lg: 'none' }}
       icon={
         isMenuOpen ? (
           <Image

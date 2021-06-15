@@ -30,7 +30,7 @@ const YX1Earphones = (): JSX.Element => {
         position="relative"
       >
         <Box
-          position={['static', 'absolute']}
+          position={{ sm: 'absolute' }}
           top="50%"
           transform={['translateY(0)', 'translateY(-50%)']}
           pr={{ sm: '1rem' }}

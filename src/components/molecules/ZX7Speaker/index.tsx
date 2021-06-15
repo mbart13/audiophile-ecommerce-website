@@ -1,13 +1,4 @@
-import {
-  HStack,
-  Box,
-  Heading,
-  Image,
-  Text,
-  Flex,
-  Button,
-  Stack,
-} from '@chakra-ui/react'
+import { Box, Heading, Image, Button } from '@chakra-ui/react'
 
 const ZX7Speaker = (): JSX.Element => {
   return (
