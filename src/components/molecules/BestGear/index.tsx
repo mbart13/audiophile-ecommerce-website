@@ -1,5 +1,5 @@
-import { Box, Heading, Image, Stack, Flex } from '@chakra-ui/react'
-import Text from 'components/atoms/Text'
+import { Box, Heading, Image, Stack, Text } from '@chakra-ui/react'
+// import Text from 'components/atoms/Text'
 
 const BestGear = (): JSX.Element => {
   return (
