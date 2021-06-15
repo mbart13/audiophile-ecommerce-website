@@ -6,6 +6,7 @@ const Header = (): JSX.Element => {
   return (
     <Box
       as="header"
+      bg="black"
       py={8}
       borderBottom={['1px', 'unset']}
       borderColor="divider"

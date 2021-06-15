@@ -10,6 +10,7 @@ const Navbar = (): JSX.Element => {
     <Flex
       justify="space-between"
       position="relative"
+      zIndex="10"
       sx={{
         '@media screen and (min-width: 30em)': {
           '&::after': {
