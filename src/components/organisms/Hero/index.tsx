@@ -32,7 +32,7 @@ const Hero = (): JSX.Element => {
     >
       <Container maxW="container.lg" px={6}>
         <Text
-          color="textHero"
+          color="textLight"
           textTransform="uppercase"
           mb={4}
           letterSpacing="0.625rem"
@@ -52,7 +52,7 @@ const Hero = (): JSX.Element => {
           XX99 Mark II Headphones
         </Heading>
         <Text
-          color="textHero"
+          color="textLight"
           fontSize="0.9375rem"
           maxWidth="38ch"
           mx={{ base: 'auto', lg: 0 }}

@@ -20,8 +20,8 @@ const HomePage = (): JSX.Element => {
         <CategoriesLinks />
         <MainGallery />
         <BestGear />
-        <Footer />
       </Container>
+      <Footer />
     </>
   )
 }

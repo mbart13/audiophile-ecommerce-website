@@ -28,14 +28,17 @@ const BestGear = (): JSX.Element => {
         <Heading
           as="h2"
           textTransform="uppercase"
-          sx={{ '& span': { color: 'accent' } }}
           mb={{ base: '2rem', sm: '2.5rem' }}
           letterSpacing="0.0894rem"
           maxWidth={{ base: '20ch', sm: '25ch', lg: '22ch' }}
           mx={{ base: 'auto', lg: 'unset' }}
           fontSize={{ base: '1.75rem' }}
         >
-          Bringing you the <span>best</span> audio gear
+          Bringing you the{' '}
+          <Box as="span" color="accent">
+            best
+          </Box>{' '}
+          audio gear
         </Heading>
         <Text px={{ sm: '2rem', md: '6rem', lg: 0 }} pr={{ lg: '3rem' }}>
           Located at the heart of New York City, Audiophile is the premier store

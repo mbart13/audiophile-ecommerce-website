@@ -7,7 +7,7 @@ const Logo = (): JSX.Element => {
     <Box
       mr={{ sm: 'auto', lg: 0 }}
       lineHeight="0"
-      ml={{ sm: '2.625rem', lg: 0 }}
+      // ml={{ sm: '2.625rem', lg: 0 }}
     >
       <Link href="/">
         <a>

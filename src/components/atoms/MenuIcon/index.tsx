@@ -8,6 +8,7 @@ const MenuIcon = (): JSX.Element => {
   return (
     <IconButton
       aria-label={isMenuOpen ? 'Close Menu' : 'Open Menu'}
+      mr={{ sm: '2.625rem', lg: 0 }}
       variant="unstyled"
       isRound={true}
       lineHeight={0}

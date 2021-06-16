@@ -12,7 +12,7 @@ const theme = extendTheme({
     white: '#fff',
     black: '#191919',
     text: 'rgba(0,0,0,0.5)',
-    textHero: 'rgba(255,255,255,0.5)',
+    textLight: 'rgba(255,255,255,0.5)',
     divider: 'rgba(255,255,255,0.1)',
   },
   fonts: {

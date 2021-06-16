@@ -9,12 +9,15 @@ const Text = {
     },
   },
   variants: {
-    primary: {
+    lightBackground: {
       color: 'text',
+    },
+    darkBackground: {
+      color: 'textLight',
     },
   },
   defaultProps: {
-    variant: 'primary',
+    variant: 'lightBackground',
     size: 'regular',
   },
 }
