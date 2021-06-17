@@ -1,11 +1,4 @@
-import {
-  Box,
-  Container,
-  Text,
-  Stack,
-  SimpleGrid,
-  position,
-} from '@chakra-ui/react'
+import { Box, Container, Text, Stack, SimpleGrid } from '@chakra-ui/react'
 
 import Logo from 'components/atoms/Logo'
 import FooterLinks from 'components/molecules/FooterLinks'
@@ -66,7 +59,11 @@ const Footer = (): JSX.Element => {
           <Text variant="darkBackground" gridArea={{ sm: 'b' }}>
             Copyright 2021. All Rights Reserved
           </Text>
-          <Box gridArea={{ sm: 'c' }}>
+          <Box
+            gridArea={{ sm: 'c' }}
+            justifySelf={{ sm: 'end' }}
+            alignSelf={{ md: 'center' }}
+          >
             <SocialLinks />
           </Box>
         </SimpleGrid>

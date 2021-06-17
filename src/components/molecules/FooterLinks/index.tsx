@@ -1,4 +1,4 @@
-import { Stack, VStack, Box } from '@chakra-ui/react'
+import { Stack, Box } from '@chakra-ui/react'
 import Link from 'next/link'
 
 import { links } from 'utils/links'
