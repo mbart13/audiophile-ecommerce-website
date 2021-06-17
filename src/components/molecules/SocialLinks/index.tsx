@@ -8,6 +8,8 @@ const SocialLinks = (): JSX.Element => {
         '& svg path': { transition: 'fill .2s' },
         '& svg:hover path': { fill: 'accent' },
       }}
+      justify={{ base: 'center', sm: 'right' }}
+      height={{ lg: '100%' }}
     >
       <IconButton
         as="a"
