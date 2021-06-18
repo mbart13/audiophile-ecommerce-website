@@ -8,6 +8,7 @@ import NavLinks from '../NavLinks'
 const Navbar = (): JSX.Element => {
   return (
     <Flex
+      as="nav"
       justify="space-between"
       position="relative"
       zIndex="10"

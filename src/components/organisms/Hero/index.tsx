@@ -47,6 +47,8 @@ const Hero = (): JSX.Element => {
             textTransform="uppercase"
             mb={4}
             letterSpacing="0.625rem"
+            display="block"
+            fontSize="0.875rem"
           >
             New Product
           </Box>

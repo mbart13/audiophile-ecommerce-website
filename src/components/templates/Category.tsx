@@ -1,16 +1,19 @@
 import { useRouter } from 'next/router'
-import { Box, Container, Heading, Text, Button } from '@chakra-ui/react'
+import { Box, Container, Heading } from '@chakra-ui/react'
 
 import ProductsList from 'components/organisms/ProductsList'
 import CategoriesLinks from 'components/organisms/CategoriesLinks'
 import BestGear from 'components/molecules/BestGear'
+import { CategoryItem } from 'pages/[category]'
 
-const Category = (): JSX.Element => {
+const Category: React.FC<{ products: CategoryItem[] }> = ({
+  products,
+}): JSX.Element => {
   const { query } = useRouter()
-
   return (
     <Box as="main">
       <Heading
+        as="h1"
         bg="black"
         textTransform="uppercase"
         fontSize={['1.75rem', '2.5rem']}
@@ -20,10 +23,10 @@ const Category = (): JSX.Element => {
         color="white"
         textAlign="center"
       >
-        Headphones
+        {query.category}
       </Heading>
       <Container maxW="container.lg" px={6}>
-        <ProductsList />
+        <ProductsList products={products} />
         <CategoriesLinks />
         <BestGear />
       </Container>

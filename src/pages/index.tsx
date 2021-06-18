@@ -1,7 +1,6 @@
 import Head from 'next/head'
 
 import HomePageTemplate from 'components/templates/HomePage'
-import CategoryTemplate from 'components/templates/Category'
 
 const HomePage = (): JSX.Element => {
   return (
@@ -9,8 +8,7 @@ const HomePage = (): JSX.Element => {
       <Head>
         <title>Audiophile e-commerce website</title>
       </Head>
-      {/* <HomePageTemplate /> */}
-      <CategoryTemplate />
+      <HomePageTemplate />
     </>
   )
 }

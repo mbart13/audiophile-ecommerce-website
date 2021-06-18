@@ -1,19 +1,11 @@
 import { Box, Stack, Heading, Text, Button, Image } from '@chakra-ui/react'
+import { CategoryItem } from 'pages/[category]'
 
-type ProductItemProps = {
-  slug: string
-  name: string
-  description: string
-  new: boolean
-  image: { [key: string]: string }
-  category: string
-}
-
-const ProductItem: React.FC<ProductItemProps> = ({
+const ProductItem: React.FC<CategoryItem> = ({
   name,
   description,
   new: isNew,
-  image,
+  categoryImage,
 }): JSX.Element => {
   return (
     <Stack
@@ -35,10 +27,10 @@ const ProductItem: React.FC<ProductItemProps> = ({
     >
       <Box flexBasis={{ lg: '55%' }}>
         <picture>
-          <source media="(min-width: 62em)" srcSet={image.desktop} />
-          <source media="(min-width: 30em)" srcSet={image.tablet} />
+          <source media="(min-width: 62em)" srcSet={categoryImage.desktop} />
+          <source media="(min-width: 30em)" srcSet={categoryImage.tablet} />
           <Image
-            src={image.mobile}
+            src={categoryImage.mobile}
             objectFit="cover"
             width="100%"
             borderRadius="0.5rem"
@@ -65,7 +57,7 @@ const ProductItem: React.FC<ProductItemProps> = ({
               fontSize="0.875rem"
               letterSpacing="0.625rem"
               fontWeight="normal"
-              mb="1.5rem"
+              mb={{ base: '1.5rem', sm: '1rem' }}
             >
               New Product
             </Box>
