@@ -31,14 +31,6 @@ const Hero = (): JSX.Element => {
       }}
     >
       <Container maxW="container.lg" px={6}>
-        <Text
-          color="textLight"
-          textTransform="uppercase"
-          mb={4}
-          letterSpacing="0.625rem"
-        >
-          New Product
-        </Text>
         <Heading
           as="h1"
           fontSize={['2.25rem', '3.5rem']}
@@ -49,6 +41,15 @@ const Hero = (): JSX.Element => {
           letterSpacing="0.0806rem"
           lineHeight="1.1"
         >
+          <Box
+            as="strong"
+            color="textLight"
+            textTransform="uppercase"
+            mb={4}
+            letterSpacing="0.625rem"
+          >
+            New Product
+          </Box>
           XX99 Mark II Headphones
         </Heading>
         <Text

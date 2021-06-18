@@ -16,7 +16,6 @@ const SocialLinks = (): JSX.Element => {
         href="https://www.facebook.com"
         variant="unstyled"
         aria-label="Follow us on Facebook"
-        aria-hidden="true"
         icon={
           <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg">
             <path
@@ -32,7 +31,6 @@ const SocialLinks = (): JSX.Element => {
         href="https://twitter.com"
         variant="unstyled"
         aria-label="Follow us on Twitter"
-        aria-hidden="true"
         icon={
           <svg width="24" height="20" xmlns="http://www.w3.org/2000/svg">
             <path
@@ -48,7 +46,6 @@ const SocialLinks = (): JSX.Element => {
         href="https://www.instagram.com"
         variant="unstyled"
         aria-label="Follow us on Instagram"
-        aria-hidden="true"
         icon={
           <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg">
             <path

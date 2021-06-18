@@ -7,6 +7,7 @@ import SocialLinks from 'components/molecules/SocialLinks'
 const Footer = (): JSX.Element => {
   return (
     <Box
+      as="footer"
       mt={['7.5rem', '6rem', '12.5rem']}
       bg="black"
       textAlign={{ base: 'center', sm: 'left' }}
@@ -17,22 +18,18 @@ const Footer = (): JSX.Element => {
         maxW="container.lg"
         position="relative"
         px={6}
-        sx={{
-          '&::before': {
-            content: '""',
-            position: 'absolute',
-            height: '0.25rem',
-            width: '6.25rem',
-            bg: 'accent',
-            top: '0',
-            left: '50%',
-            transform: 'translateX(-50%)',
-          },
-          '@media screen and (min-width: 30rem)': {
-            '&::before': {
-              transform: 'translateX(0)',
-              left: '1.5rem',
-            },
+        _before={{
+          content: '""',
+          position: 'absolute',
+          height: '0.25rem',
+          width: '6.25rem',
+          bg: 'accent',
+          top: '0',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          '@media screen and (min-width: 30em)': {
+            transform: 'translateX(0)',
+            left: '1.5rem',
           },
         }}
       >
