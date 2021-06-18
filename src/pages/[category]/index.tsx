@@ -1,9 +1,9 @@
 import Head from 'next/head'
+import { GetStaticPaths, GetStaticProps } from 'next'
 import fs from 'fs'
 import path from 'path'
 
 import CategoryTemplate from 'components/templates/Category'
-import { GetStaticPaths, GetStaticProps } from 'next'
 import { Product } from 'models/Product'
 import { ParsedUrlQuery } from 'querystring'
 
@@ -61,7 +61,6 @@ interface Params extends ParsedUrlQuery {
 
 export const getStaticProps: GetStaticProps = async context => {
   const params = context.params as Params
-  console.log(params)
   const filePath = path.join(process.cwd(), 'src', 'data', 'products.json')
   const jsonData = fs.readFileSync(filePath, 'utf8')
   const data: { products: Product[] } = JSON.parse(jsonData)
@@ -80,7 +79,6 @@ export const getStaticProps: GetStaticProps = async context => {
       }
     })
     .sort((a, b) => Number(b.new) - Number(a.new))
-  console.log(filteredData)
 
   return {
     props: {
