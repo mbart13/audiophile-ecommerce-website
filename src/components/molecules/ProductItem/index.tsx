@@ -4,7 +4,7 @@ import { CategoryItem } from 'pages/[category]'
 const ProductItem: React.FC<CategoryItem> = ({
   name,
   description,
-  new: isNew,
+  isNew,
   categoryImage,
 }): JSX.Element => {
   return (

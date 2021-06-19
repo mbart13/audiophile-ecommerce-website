@@ -1,18 +1,16 @@
 import Head from 'next/head'
 import { GetStaticPaths, GetStaticProps } from 'next'
-import fs from 'fs'
-import path from 'path'
 
 import CategoryTemplate from 'components/templates/Category'
-import { Product } from 'models/Product'
 import { ParsedUrlQuery } from 'querystring'
+import { getProductsByCategory } from 'utils/products'
 
 export type CategoryItem = {
   id: number
   slug: string
   name: string
   description: string
-  new: boolean
+  isNew: boolean
   categoryImage: {
     mobile: string
     tablet: string
@@ -21,7 +19,7 @@ export type CategoryItem = {
   category: string
 }
 
-const Categories = ({
+const CategoryPage = ({
   products,
 }: {
   products: CategoryItem[]
@@ -36,7 +34,7 @@ const Categories = ({
   )
 }
 
-export default Categories
+export default CategoryPage
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
@@ -61,28 +59,12 @@ interface Params extends ParsedUrlQuery {
 
 export const getStaticProps: GetStaticProps = async context => {
   const params = context.params as Params
-  const filePath = path.join(process.cwd(), 'src', 'data', 'products.json')
-  const jsonData = fs.readFileSync(filePath, 'utf8')
-  const data: { products: Product[] } = JSON.parse(jsonData)
 
-  const filteredData: CategoryItem[] = data.products
-    .filter((product: Product) => product.category === params.category)
-    .map(product => {
-      return {
-        id: product.id,
-        slug: product.slug,
-        name: product.name,
-        description: product.description,
-        new: product.new,
-        category: product.category,
-        categoryImage: product.categoryImage,
-      }
-    })
-    .sort((a, b) => Number(b.new) - Number(a.new))
+  const products: CategoryItem[] = getProductsByCategory(params.category)
 
   return {
     props: {
-      products: filteredData,
+      products,
     },
   }
 }

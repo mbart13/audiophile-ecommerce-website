@@ -13,7 +13,7 @@ const ProductsList: React.FC<{ products: CategoryItem[] }> = ({
       mb={{ base: '7.5rem' }}
     >
       {products.map(product => (
-        <ProductItem key={product.name} {...product} />
+        <ProductItem key={product.id} {...product} />
       ))}
     </VStack>
   )
