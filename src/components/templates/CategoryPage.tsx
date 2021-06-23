@@ -4,9 +4,9 @@ import { Box, Container, Heading } from '@chakra-ui/react'
 import ProductsList from 'components/organisms/ProductsList'
 import CategoriesLinks from 'components/organisms/CategoriesLinks'
 import BestGear from 'components/molecules/BestGear'
-import { CategoryItem } from 'pages/[category]'
+import { Product } from 'models/Product'
 
-const Category: React.FC<{ products: CategoryItem[] }> = ({
+const Category: React.FC<{ products: Product[] }> = ({
   products,
 }): JSX.Element => {
   const { query } = useRouter()

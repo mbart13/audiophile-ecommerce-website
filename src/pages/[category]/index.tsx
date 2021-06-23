@@ -1,29 +1,12 @@
 import Head from 'next/head'
 import { GetStaticPaths, GetStaticProps } from 'next'
 
-import CategoryTemplate from 'components/templates/Category'
-import { ParsedUrlQuery } from 'querystring'
-import { getProductsByCategory } from 'utils/products'
+import CategoryTemplate from 'components/templates/CategoryPage'
+import { getProductsByCategory, getCategories } from 'utils/products'
+import Params from 'models/Params'
+import { Product } from 'models/Product'
 
-export type CategoryItem = {
-  id: number
-  slug: string
-  name: string
-  description: string
-  isNew: boolean
-  categoryImage: {
-    mobile: string
-    tablet: string
-    desktop: string
-  }
-  category: string
-}
-
-const CategoryPage = ({
-  products,
-}: {
-  products: CategoryItem[]
-}): JSX.Element => {
+const CategoryPage = ({ products }: { products: Product[] }): JSX.Element => {
   return (
     <>
       <Head>
@@ -37,30 +20,18 @@ const CategoryPage = ({
 export default CategoryPage
 
 export const getStaticPaths: GetStaticPaths = async () => {
+  const categories: string[] = getCategories()
+  const paths = categories.map(category => ({ params: { category } }))
   return {
-    paths: [
-      {
-        params: { category: 'headphones' },
-      },
-      {
-        params: { category: 'speakers' },
-      },
-      {
-        params: { category: 'earphones' },
-      },
-    ],
+    paths,
     fallback: false,
   }
-}
-
-interface Params extends ParsedUrlQuery {
-  category: string
 }
 
 export const getStaticProps: GetStaticProps = async context => {
   const params = context.params as Params
 
-  const products: CategoryItem[] = getProductsByCategory(params.category)
+  const products: Product[] = getProductsByCategory(params.category)
 
   return {
     props: {

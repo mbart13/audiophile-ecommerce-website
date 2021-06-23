@@ -1,4 +1,5 @@
 import { Box, Container, Heading, Text, Button } from '@chakra-ui/react'
+import Link from 'next/link'
 
 const Hero = (): JSX.Element => {
   return (
@@ -65,7 +66,11 @@ const Hero = (): JSX.Element => {
           Experience natural, lifelike audio and exceptional build quality made
           for the passionate music enthusiast.
         </Text>
-        <Button>See Product</Button>
+        <Link href="/headphones/xx99-mark-two-headphones">
+          <Button as="a" cursor="pointer">
+            See Product
+          </Button>
+        </Link>
       </Container>
     </Box>
   )

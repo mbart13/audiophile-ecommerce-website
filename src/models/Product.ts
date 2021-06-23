@@ -2,16 +2,16 @@ export interface Product {
   id: number
   slug: string
   name: string
-  image: CategoryImage
+  image?: CategoryImage
   category: string
   categoryImage: CategoryImage
   new: boolean
-  price: number
-  description: string
-  features: string
-  includes: Include[]
-  gallery: Gallery
-  others: Other[]
+  price?: number
+  description?: string
+  features?: string
+  includes?: Include[]
+  gallery?: Gallery
+  others?: Other[]
 }
 
 export interface CategoryImage {

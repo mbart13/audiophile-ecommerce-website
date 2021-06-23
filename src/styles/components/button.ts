@@ -28,6 +28,18 @@ const Button = {
         color: 'white',
       },
     },
+    link: {
+      background: 'transparent',
+      border: 'none',
+      color: 'text',
+      padding: '0',
+      fontWeight: 'normal',
+      _hover: {
+        background: 'transparent',
+        textDecoration: 'underline',
+        cursor: 'pointer',
+      },
+    },
   },
   defaultProps: {
     variant: 'primary',

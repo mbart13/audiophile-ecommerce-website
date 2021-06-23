@@ -1,19 +1,19 @@
 import { VStack } from '@chakra-ui/react'
 
-import ProductItem from 'components/molecules/ProductItem'
-import { CategoryItem } from 'pages/[category]'
+import CategoryPageItem from 'components/molecules/CategoryPageItem'
+import { Product } from 'models/Product'
 
-const ProductsList: React.FC<{ products: CategoryItem[] }> = ({
+const ProductsList: React.FC<{ products: Product[] }> = ({
   products,
 }): JSX.Element => {
   return (
     <VStack
-      mt={{ base: '64px' }}
+      mt={{ base: '4rem' }}
       spacing={{ base: '7.5rem' }}
       mb={{ base: '7.5rem' }}
     >
       {products.map(product => (
-        <ProductItem key={product.id} {...product} />
+        <CategoryPageItem key={product.id} {...product} />
       ))}
     </VStack>
   )

@@ -1,10 +1,13 @@
 import { Box, Stack, Heading, Text, Button, Image } from '@chakra-ui/react'
-import { CategoryItem } from 'pages/[category]'
+import { Product } from 'models/Product'
+import Link from 'next/link'
 
-const ProductItem: React.FC<CategoryItem> = ({
+const CategoryPageItem: React.FC<Product> = ({
+  slug,
   name,
+  category,
   description,
-  isNew,
+  new: isNew,
   categoryImage,
 }): JSX.Element => {
   return (
@@ -71,10 +74,14 @@ const ProductItem: React.FC<CategoryItem> = ({
         >
           {description}
         </Text>
-        <Button>See Product</Button>
+        <Link href={`/${category}/${slug}`}>
+          <Button as="a" cursor="pointer">
+            See Product
+          </Button>
+        </Link>
       </Box>
     </Stack>
   )
 }
 
-export default ProductItem
+export default CategoryPageItem
