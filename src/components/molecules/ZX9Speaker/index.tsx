@@ -1,4 +1,5 @@
 import { Box, Heading, Image, Text, Button, Stack } from '@chakra-ui/react'
+import Link from 'next/link'
 
 const ZX9Speaker = (): JSX.Element => {
   return (
@@ -59,9 +60,11 @@ const ZX9Speaker = (): JSX.Element => {
           Upgrade to premium speakers that are phenomenally built to deliver
           truly remarkable sound.
         </Text>
-        <Button bg="black" _hover={{ bg: '#4C4C4C' }}>
-          See Product
-        </Button>
+        <Link href="/speakers/zx9-speaker">
+          <Button bg="black" _hover={{ bg: '#4C4C4C' }}>
+            See Product
+          </Button>
+        </Link>
       </Box>
     </Stack>
   )

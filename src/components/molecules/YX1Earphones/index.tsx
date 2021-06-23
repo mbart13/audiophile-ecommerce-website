@@ -1,4 +1,5 @@
 import { Box, Heading, Image, Button, SimpleGrid } from '@chakra-ui/react'
+import Link from 'next/link'
 
 const YX1Earphones = (): JSX.Element => {
   return (
@@ -38,7 +39,9 @@ const YX1Earphones = (): JSX.Element => {
           <Heading as="h2" mb="2rem" fontSize="1.75rem" color="black">
             YX1 Earphones
           </Heading>
-          <Button variant="secondary">See Product</Button>
+          <Link href="/earphones/yx1-earphones">
+            <Button variant="secondary">See Product</Button>
+          </Link>
         </Box>
       </Box>
     </SimpleGrid>
