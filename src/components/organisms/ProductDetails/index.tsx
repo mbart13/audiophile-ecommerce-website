@@ -85,7 +85,7 @@ const ProductDetails: React.FC<{ product: Product }> = ({
             mt={{ base: '2rem' }}
             alignItems={{ base: 'stretch' }}
           >
-            <ProductQuantity />
+            <ProductQuantity width="7.5rem" height="3rem" />
             <Button>Add to Cart</Button>
           </HStack>
         </Box>

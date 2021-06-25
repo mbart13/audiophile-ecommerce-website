@@ -3,6 +3,7 @@ export interface Product {
   slug: string
   name: string
   image?: CategoryImage
+  cartImage: string
   category: string
   categoryImage: CategoryImage
   new: boolean

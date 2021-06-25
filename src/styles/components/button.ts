@@ -3,6 +3,7 @@ const Button = {
     fontWeight: 'bold',
     textTransform: 'uppercase',
     borderRadius: 0,
+    letterSpacing: '0.0625rem',
   },
   sizes: {
     regular: {

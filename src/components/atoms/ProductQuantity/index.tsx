@@ -1,21 +1,22 @@
 import { useState } from 'react'
 import { Flex, Button as ChakraButton, Center } from '@chakra-ui/react'
 
-const ProductQuantity = (): JSX.Element => {
+const ProductQuantity = ({
+  width,
+  height,
+}: {
+  width: string
+  height: string
+}): JSX.Element => {
   const [quantity, setQuantity] = useState(1)
 
   return (
-    <Flex bg="gray" height="3rem" alignItems="center">
+    <Flex bg="gray" alignItems="center" width={width} height={height}>
       <Button
         sign="-"
         handleClick={() => setQuantity(qty => (qty === 1 ? 1 : qty - 1))}
       />
-      <Center
-        fontSize="0.8125rem"
-        fontWeight="bold"
-        width="2.5rem"
-        height="3rem"
-      >
+      <Center fontSize="0.8125rem" fontWeight="bold" width="20%">
         {quantity}
       </Center>
       <Button sign="+" handleClick={() => setQuantity(qty => qty + 1)} />
@@ -33,8 +34,8 @@ const Button = ({
   return (
     <ChakraButton
       onClick={handleClick}
-      width="2.5rem"
-      height="3rem"
+      width="40%"
+      height="100%"
       color="text"
       fontSize="0.9375rem"
       fontWeight="bold"
@@ -42,7 +43,8 @@ const Button = ({
       p="0"
       bg="transparent"
       _hover={{
-        bg: 'transparent',
+        bg: 'lightGray',
+        color: 'accent',
       }}
     >
       {sign}
