@@ -7,4 +7,4 @@ Done so far:
 - category page
 - product page
 - routing
-
+- adding products to cart and cart modal
