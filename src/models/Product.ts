@@ -2,7 +2,7 @@ export interface Product {
   id: number
   slug: string
   name: string
-  shortName: string
+  shortName?: string
   image?: CategoryImage
   cartImage?: string
   cartQuantity?: number
@@ -12,7 +12,7 @@ export interface Product {
   price?: number
   description?: string
   features?: string
-  includes?: Include[]
+  includedItems?: IncludedItem[]
   gallery?: Gallery
   others?: Other[]
 }
@@ -29,7 +29,7 @@ export interface Gallery {
   third: CategoryImage
 }
 
-export interface Include {
+export interface IncludedItem {
   quantity: number
   item: string
 }

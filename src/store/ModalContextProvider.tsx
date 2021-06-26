@@ -1,4 +1,4 @@
-import React from 'react'
+import { createContext } from 'react'
 import { useDisclosure } from '@chakra-ui/react'
 
 type ContextProps = {
@@ -13,7 +13,7 @@ const initialState = {
   onClose: () => undefined,
 }
 
-export const ModalContext = React.createContext<ContextProps>(initialState)
+export const ModalContext = createContext<ContextProps>(initialState)
 
 const ModalContextProvider: React.FC = ({ children }): JSX.Element => {
   const { isOpen, onOpen, onClose } = useDisclosure()

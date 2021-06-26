@@ -1,4 +1,3 @@
-import Head from 'next/head'
 import { GetStaticPaths, GetStaticProps } from 'next'
 
 import { getProductsPaths, getProductBySlug } from 'utils/products'
