@@ -19,7 +19,12 @@ const ProductLink: React.FC<OtherProductsProps> = ({
           borderRadius="0.5rem"
         />
       </Box>
-      <Heading as="h3" fontSize={{ base: '1.5rem' }} mt={{ base: '2rem' }}>
+      <Heading
+        as="h3"
+        fontSize={{ base: '1.5rem' }}
+        mt={{ base: '2rem' }}
+        letterSpacing="0.1069rem"
+      >
         {name}
       </Heading>
       <Link href={`/${slug}`}>

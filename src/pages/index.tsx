@@ -6,7 +6,7 @@ const HomePage = (): JSX.Element => {
   return (
     <>
       <Head>
-        <title>Audiophile e-commerce website</title>
+        <title>Audiophile Shop</title>
       </Head>
       <HomePageTemplate />
     </>

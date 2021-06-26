@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import { useRouter } from 'next/router'
 import { GetStaticPaths, GetStaticProps } from 'next'
 
 import CategoryTemplate from 'components/templates/CategoryPage'
@@ -7,10 +8,11 @@ import Params from 'models/Params'
 import { Product } from 'models/Product'
 
 const CategoryPage = ({ products }: { products: Product[] }): JSX.Element => {
+  const { query } = useRouter()
   return (
     <>
       <Head>
-        <title>Audiophile e-commerce website</title>
+        <title>{`Audiophile shop - ${query.category}`}</title>
       </Head>
       <CategoryTemplate products={products} />
     </>

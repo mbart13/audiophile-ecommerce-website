@@ -2,7 +2,10 @@ export interface Product {
   id: number
   slug: string
   name: string
+  shortName: string
   image?: CategoryImage
+  cartImage?: string
+  cartQuantity?: number
   category: string
   categoryImage: CategoryImage
   new: boolean
