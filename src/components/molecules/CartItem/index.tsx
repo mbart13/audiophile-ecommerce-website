@@ -1,31 +1,25 @@
-import React from 'react'
-import {
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  Box,
-  Heading,
-  Text,
-  HStack,
-  Button,
-  ListItem,
-} from '@chakra-ui/react'
+import { Box, Text, HStack } from '@chakra-ui/react'
+import { useDispatch } from 'react-redux'
 import Image from 'next/image'
-import ProductQuantity from 'components/atoms/ProductQuantity'
-type CartItemProps = {
-  id: number
-  shortName: string
-  cartImage: string
-  price: number
-}
 
-const CartItem: React.FC<{ product: CartItemProps }> = ({
-  product,
-}): JSX.Element => {
+import ProductQuantity from 'components/atoms/ProductQuantity'
+import CartItemType from 'models/CartItem'
+import { cartActions } from 'store/CartSlice'
+
+const CartItem: React.FC<{ item: CartItemType }> = ({ item }): JSX.Element => {
+  const dispatch = useDispatch()
+
+  const increment = () => {
+    dispatch(cartActions.increaseQuantity(item.id))
+  }
+  const decrement = () => {
+    dispatch(cartActions.decreaseQuantity(item.id))
+  }
+
   return (
     <HStack as="li" justify="space-between" align="center" listStyleType="none">
       <HStack align="center">
-        <Image src={product.cartImage} width={64} height={64} />
+        <Image src={item.cartImage} width={64} height={64} />
         <Box ml="1rem">
           <Text
             fontWeight="bold"
@@ -33,14 +27,20 @@ const CartItem: React.FC<{ product: CartItemProps }> = ({
             color="black"
             textTransform="uppercase"
           >
-            {product.shortName}
+            {item.shortName}
           </Text>
           <Text fontWeight="bold" fontSize="0.875rem">
-            $ {product.price.toLocaleString()}
+            $ {item.price.toLocaleString()}
           </Text>
         </Box>
       </HStack>
-      <ProductQuantity width="6rem" height="2rem" />
+      <ProductQuantity
+        quantity={item.quantity}
+        increment={increment}
+        decrement={decrement}
+        width="6rem"
+        height="2rem"
+      />
     </HStack>
   )
 }

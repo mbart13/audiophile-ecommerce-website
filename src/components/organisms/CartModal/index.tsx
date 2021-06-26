@@ -9,37 +9,29 @@ import {
   List,
 } from '@chakra-ui/react'
 import { useContext, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { ModalContext } from 'store/ModalContextProvider'
 import CartItem from 'components/molecules/CartItem'
-
-const data = [
-  {
-    id: 4,
-    shortName: 'XX99 MK II',
-    cartImage: '/images/cart/image-xx99-mark-two-headphones.jpg',
-    price: 2999,
-  },
-  {
-    id: 3,
-    shortName: 'XX59',
-    cartImage: '/images/cart/image-xx59-headphones.jpg',
-    price: 899,
-  },
-  {
-    id: 4,
-    shortName: 'YX1',
-    cartImage: '/images/cart/image-yx1-earphones.jpg',
-    price: 599,
-  },
-]
+import { cartItems, totalAmount, totalQuantity } from 'store/CartSlice'
+import { cartActions } from 'store/CartSlice'
 
 const CartModal = (): JSX.Element => {
+  const items = useSelector(cartItems)
+  const amount = useSelector(totalAmount)
+  const quantity = useSelector(totalQuantity)
+  const dispatch = useDispatch()
   const { isOpen, onClose } = useContext(ModalContext)
+
   useEffect(() => {
     isOpen
       ? (document.body.style.overflowY = 'hidden')
       : (document.body.style.overflowY = 'initial')
   }, [isOpen])
+
+  const clearCart = () => {
+    dispatch(cartActions.clearCart())
+  }
+
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
       <ModalOverlay px="1.5rem" />
@@ -53,7 +45,7 @@ const CartModal = (): JSX.Element => {
       >
         <HStack justify="space-between" mb="2rem">
           <Heading as="h3" fontSize="1.125rem" letterSpacing="0.0806rem">
-            Cart (3)
+            Cart ({quantity})
           </Heading>
           <Button
             variant="link"
@@ -61,6 +53,7 @@ const CartModal = (): JSX.Element => {
             textTransform="capitalize"
             m="0"
             textDecoration="underline"
+            onClick={clearCart}
             _hover={{
               color: 'accent',
             }}
@@ -68,15 +61,17 @@ const CartModal = (): JSX.Element => {
             Remove all
           </Button>
         </HStack>
-        <List spacing="1.5rem" mb="2rem">
-          {data.map(product => (
-            <CartItem product={product} key={product.id} />
-          ))}
-        </List>
+        {!!items.length && (
+          <List spacing="1.5rem" mb="2rem">
+            {items.map(cartItem => (
+              <CartItem item={cartItem} key={cartItem.id} />
+            ))}
+          </List>
+        )}
         <HStack justify="space-between" mb="1.5rem">
           <Text textTransform="uppercase">Total</Text>
           <Text fontSize=" 1.125rem" fontWeight="bold" color="black">
-            $ 5,396
+            $ {amount.toLocaleString()}
           </Text>
         </HStack>
         <Button>Checkout</Button>

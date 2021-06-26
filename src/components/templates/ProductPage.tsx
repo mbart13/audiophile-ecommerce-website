@@ -1,10 +1,8 @@
 import { useRouter } from 'next/router'
 import { Product } from 'models/Product'
+import { Container, Button } from '@chakra-ui/react'
 
 import ProductDetails from 'components/organisms/ProductDetails'
-
-import { Container, Button } from '@chakra-ui/react'
-import BasicUsage from './../organisms/BasicUsage/BasicUsage'
 
 const ProductPage: React.FC<{ product: Product }> = ({
   product,
@@ -24,7 +22,6 @@ const ProductPage: React.FC<{ product: Product }> = ({
         Go back
       </Button>
       <ProductDetails product={product} />
-      <BasicUsage />
     </Container>
   )
 }

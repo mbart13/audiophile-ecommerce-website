@@ -1,25 +1,26 @@
-import { useState } from 'react'
+import { Dispatch, SetStateAction, useState } from 'react'
 import { Flex, Button as ChakraButton, Center } from '@chakra-ui/react'
 
 const ProductQuantity = ({
+  quantity,
+  increment,
+  decrement,
   width,
   height,
 }: {
+  quantity: number
+  increment: () => void
+  decrement: () => void
   width: string
   height: string
 }): JSX.Element => {
-  const [quantity, setQuantity] = useState(1)
-
   return (
     <Flex bg="gray" alignItems="center" width={width} height={height}>
-      <Button
-        sign="-"
-        handleClick={() => setQuantity(qty => (qty === 1 ? 1 : qty - 1))}
-      />
+      <Button sign="-" handleClick={decrement} />
       <Center fontSize="0.8125rem" fontWeight="bold" width="20%">
         {quantity}
       </Center>
-      <Button sign="+" handleClick={() => setQuantity(qty => qty + 1)} />
+      <Button sign="+" handleClick={increment} />
     </Flex>
   )
 }

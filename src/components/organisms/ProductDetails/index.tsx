@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
   Box,
   Stack,
@@ -11,16 +11,40 @@ import {
   ListItem,
   SimpleGrid,
 } from '@chakra-ui/react'
+import { useDispatch } from 'react-redux'
 import ProductQuantity from 'components/atoms/ProductQuantity'
 import ProductGallery from 'components/molecules/ProductGallery/'
 import CategoriesLinks from 'components/organisms/CategoriesLinks'
 import BestGear from 'components/molecules/BestGear/index'
 import OtherProducts from 'components/organisms/OtherProducts'
 import { Product } from 'models/Product'
+import { cartActions } from 'store/CartSlice'
 
 const ProductDetails: React.FC<{ product: Product }> = ({
   product,
 }): JSX.Element => {
+  const [quantity, setQuantity] = useState(1)
+  const dispatch = useDispatch()
+  const addToCart = () => {
+    dispatch(
+      cartActions.addItemToCart({
+        id: product.id,
+        shortName: product.shortName,
+        cartImage: product.cartImage,
+        price: product.price,
+        quantity,
+      })
+    )
+  }
+
+  const increment = () => {
+    setQuantity(state => state + 1)
+  }
+
+  const decrement = () => {
+    setQuantity(state => state - 1)
+  }
+
   return (
     <>
       <Stack
@@ -85,8 +109,14 @@ const ProductDetails: React.FC<{ product: Product }> = ({
             mt={{ base: '2rem' }}
             alignItems={{ base: 'stretch' }}
           >
-            <ProductQuantity width="7.5rem" height="3rem" />
-            <Button>Add to Cart</Button>
+            <ProductQuantity
+              quantity={quantity}
+              increment={increment}
+              decrement={decrement}
+              width="7.5rem"
+              height="3rem"
+            />
+            <Button onClick={addToCart}>Add to Cart</Button>
           </HStack>
         </Box>
       </Stack>
