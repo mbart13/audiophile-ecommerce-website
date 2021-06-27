@@ -4,11 +4,7 @@ import { Box } from '@chakra-ui/react'
 
 const Logo = (): JSX.Element => {
   return (
-    <Box
-      mr={{ sm: 'auto', lg: 0 }}
-      lineHeight="0"
-      // ml={{ sm: '2.625rem', lg: 0 }}
-    >
+    <Box mr={{ sm: 'auto', lg: 0 }} lineHeight="0">
       <Link href="/">
         <a>
           <Image

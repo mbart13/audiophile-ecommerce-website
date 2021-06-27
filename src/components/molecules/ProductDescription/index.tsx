@@ -9,6 +9,7 @@ import ProductQuantity from 'components/atoms/ProductQuantity'
 const ProductDescription = ({ product }: { product: Product }): JSX.Element => {
   const [quantity, setQuantity] = useState(1)
   const dispatch = useDispatch()
+
   const addToCart = () => {
     dispatch(
       cartActions.addItemToCart({
