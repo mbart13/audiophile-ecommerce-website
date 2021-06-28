@@ -1,16 +1,16 @@
-import { Box, Input, FormLabel, FormControl } from '@chakra-ui/react'
+import { Box, Input } from '@chakra-ui/react'
 
-const FormField = ({
-  label,
-  placeholder,
-  type = 'text',
-}: {
+type FormFieldProps = {
   label: string
   placeholder: string
   type?: string
-}): JSX.Element => {
+  [prop: string]: unknown
+}
+
+const FormField: React.FC<FormFieldProps> = (props): JSX.Element => {
+  const { label, placeholder, type = 'text', ...other } = props
   return (
-    <Box>
+    <Box {...other}>
       <Box
         as="label"
         fontSize="0.75rem"

@@ -10,10 +10,16 @@ import {
 } from '@chakra-ui/react'
 import { useContext, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import Link from 'next/link'
+
 import { ModalContext } from 'store/ModalContextProvider'
 import CartItem from 'components/molecules/CartItem'
-import { cartItems, totalAmount, totalQuantity } from 'store/CartSlice'
-import { cartActions } from 'store/CartSlice'
+import {
+  cartItems,
+  totalAmount,
+  totalQuantity,
+  cartActions,
+} from 'store/CartSlice'
 
 const CartModal = (): JSX.Element => {
   const items = useSelector(cartItems)
@@ -74,7 +80,11 @@ const CartModal = (): JSX.Element => {
             $ {amount.toLocaleString()}
           </Text>
         </HStack>
-        <Button>Checkout</Button>
+        <Link href="/checkout">
+          <Button as="a" cursor="pointer" onClick={onClose}>
+            Checkout
+          </Button>
+        </Link>
       </ModalContent>
     </Modal>
   )

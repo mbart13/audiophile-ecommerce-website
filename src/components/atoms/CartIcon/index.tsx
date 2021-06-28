@@ -31,7 +31,7 @@ const CartIcon = (): JSX.Element => {
       {!!quantity && (
         <Center
           as="span"
-          p=".7rem"
+          p=".6rem"
           position="absolute"
           width="1rem"
           height="1rem"
@@ -40,7 +40,7 @@ const CartIcon = (): JSX.Element => {
           borderRadius="50%"
           color="white"
           top="-0.375rem"
-          right="-0.9375rem"
+          right="-0.75rem"
         >
           {quantity}
         </Center>

@@ -149,7 +149,7 @@
       "others": [
         {
           "slug": "headphones/xx99-mark-two-headphones",
-          "name": "XX99 MK   II",
+          "name": "XX99 MK II",
           "image": {
             "mobile": "/images/shared/mobile/image-xx99-mark-two-headphones.jpg",
             "tablet": "/images/shared/tablet/image-xx99-mark-two-headphones.jpg",
@@ -266,7 +266,7 @@
       "id": 4,
       "slug": "xx99-mark-two-headphones",
       "name": "XX99 Mark II Headphones",
-      "shortName": "XX99 Mark II",
+      "shortName": "XX99 MK II",
       "image": {
         "mobile": "/images/product-xx99-mark-two-headphones/mobile/image-product.jpg",
         "tablet": "/images/product-xx99-mark-two-headphones/tablet/image-product.jpg",
