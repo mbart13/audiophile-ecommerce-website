@@ -1,7 +1,7 @@
-import React from 'react'
+import CheckoutPageTemplate from 'components/templates/CheckoutPage'
 
-const Checkout = () => {
-  return <div></div>
+const CheckoutPage = (): JSX.Element => {
+  return <CheckoutPageTemplate />
 }
 
-export default Checkout
+export default CheckoutPage
