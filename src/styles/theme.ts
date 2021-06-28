@@ -2,6 +2,7 @@ import { extendTheme } from '@chakra-ui/react'
 
 import Button from './components/button'
 import Text from './components/text'
+import Input from './components/input'
 
 const theme = extendTheme({
   colors: {
@@ -15,6 +16,9 @@ const theme = extendTheme({
     text: 'rgba(0,0,0,0.5)',
     textLight: 'rgba(255,255,255,0.5)',
     divider: 'rgba(255,255,255,0.1)',
+    placeholder: 'rgba(0,0,0,.4)',
+    inputBorder: '#CFCFCF',
+    inputError: '#CD2C2C',
   },
   fonts: {
     body: `'Manrope', sans-serif`,
@@ -27,6 +31,7 @@ const theme = extendTheme({
   components: {
     Button,
     Text,
+    Input,
   },
   shadows: {
     outline: 'none',

@@ -33,7 +33,7 @@ const CartModal = (): JSX.Element => {
   }
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose}>
+    <Modal isOpen={isOpen} onClose={onClose} preserveScrollBarGap={false}>
       <ModalOverlay px="1.5rem" />
       <ModalContent
         p="2rem"
