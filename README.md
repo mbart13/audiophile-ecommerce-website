@@ -8,3 +8,4 @@ Done so far:
 - product page
 - routing
 - adding products to cart and cart modal
+- created checkout page
