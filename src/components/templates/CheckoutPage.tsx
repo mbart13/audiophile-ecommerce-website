@@ -25,6 +25,7 @@ import FormField from 'components/molecules/FormField'
 import FieldSet from 'components/organisms/FieldSet'
 import Radio from 'components/atoms/Radio'
 import CartItem from 'components/molecules/CartItem'
+import Summary from 'components/molecules/Summary'
 const CheckoutPage = (): JSX.Element => {
   const options = ['e-Money', 'Cash on Delivery']
   const [checkedOption, setCheckedOption] = useState(options[0])
@@ -41,36 +42,13 @@ const CheckoutPage = (): JSX.Element => {
 
   const group = getRootProps()
 
-  const data = [
-    {
-      id: 4,
-      shortName: 'XX99 MK II',
-      cartImage: '/images/cart/image-xx99-mark-two-headphones.jpg',
-      price: 2999,
-      quantity: 1,
-    },
-    {
-      id: 3,
-      shortName: 'XX59',
-      cartImage: '/images/cart/image-xx59-headphones.jpg',
-      price: 899,
-      quantity: 2,
-    },
-    {
-      id: 4,
-      shortName: 'YX1',
-      cartImage: '/images/cart/image-yx1-earphones.jpg',
-      price: 599,
-      quantity: 1,
-    },
-  ]
-
   return (
     <Container maxW="container.lg" px={6} as="main">
       <GoBackLink />
       <Stack
         as="form"
         direction={{ base: 'column', lg: 'row' }}
+        alignItems={{ lg: 'start' }}
         spacing={{ base: '2rem' }}
         mt={{ base: '1.5rem' }}
       >
@@ -80,6 +58,8 @@ const CheckoutPage = (): JSX.Element => {
           px={{ base: '1.5rem', sm: '1.75rem', lg: '3rem' }}
           pt={{ base: '1.5rem', sm: '1.875rem', lg: '3.625rem' }}
           pb={{ base: '2rem', lg: '3rem' }}
+          maxWidth={{ lg: '45.625rem' }}
+          flexGrow={{ lg: 1 }}
         >
           <Heading as="h1" fontSize={{ base: '1.75rem' }} mb={{ base: '2rem' }}>
             Checkout
@@ -171,101 +151,7 @@ const CheckoutPage = (): JSX.Element => {
             )}
           </Box>
         </Box>
-        <Box
-          px={{ base: '1.5rem' }}
-          py={{ base: '2rem' }}
-          bg="white"
-          flexGrow={{ lg: 1 }}
-        >
-          <Heading fontSize={{ base: '1.125rem' }} letterSpacing="0.0806rem">
-            Summary
-          </Heading>
-          <List as="ul" spacing="1.5rem" mt="2rem">
-            {data.map(item => (
-              <>
-                <HStack align="center" as="li">
-                  <Image
-                    src={item.cartImage}
-                    borderRadius="0.5rem"
-                    boxSize="4rem"
-                  />
-                  <Box ml="1rem" width="100%">
-                    <HStack justify="space-between" width="100%">
-                      <Text
-                        fontWeight="bold"
-                        fontSize="0.9375rem"
-                        color="black"
-                        textTransform="uppercase"
-                      >
-                        {item.shortName}
-                      </Text>
-                      <Text
-                        fontWeight="bold"
-                        fontSize="0.9375rem"
-                        alignSelf="flex-start"
-                      >
-                        x{item.quantity}
-                      </Text>
-                    </HStack>
-
-                    <Text fontWeight="bold" fontSize="0.875rem">
-                      $ {item.price.toLocaleString()}
-                    </Text>
-                  </Box>
-                </HStack>
-              </>
-            ))}
-          </List>
-          <Box mt="2rem">
-            <HStack justify="space-between">
-              <Text textTransform="uppercase">Total</Text>
-              <Text
-                textTransform="uppercase"
-                fontWeight="bold"
-                fontSize="1.125rem"
-                color="black"
-              >
-                $ 5,396
-              </Text>
-            </HStack>
-            <HStack justify="space-between">
-              <Text textTransform="uppercase">Shipping</Text>
-              <Text
-                textTransform="uppercase"
-                fontWeight="bold"
-                fontSize="1.125rem"
-                color="black"
-              >
-                $ 50
-              </Text>
-            </HStack>
-            <HStack justify="space-between">
-              <Text textTransform="uppercase">VAT (Included)</Text>
-              <Text
-                textTransform="uppercase"
-                fontWeight="bold"
-                fontSize="1.125rem"
-                color="black"
-              >
-                $ 1,079
-              </Text>
-            </HStack>
-            <HStack justify="space-between" mt="1.5rem">
-              <Text textTransform="uppercase">Grand Total</Text>
-              <Text
-                textTransform="uppercase"
-                fontWeight="bold"
-                fontSize="1.125rem"
-                color="accent"
-              >
-                $ 1,079
-              </Text>
-            </HStack>
-            <Button width="100%" mt="2rem">
-              Continue & Pay
-            </Button>
-          </Box>
-        </Box>
+        <Summary />
       </Stack>
     </Container>
   )

@@ -25,7 +25,7 @@ const theme = extendTheme({
   },
   sizes: {
     container: {
-      lg: '69.375rem',
+      lg: '72.375rem',
     },
   },
   components: {
