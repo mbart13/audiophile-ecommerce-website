@@ -1,13 +1,12 @@
 import { Button, Center } from '@chakra-ui/react'
 import Image from 'next/image'
-import { useContext } from 'react'
 import { useSelector } from 'react-redux'
 
-import { ModalContext } from 'store/ModalContextProvider'
+import { useModal } from 'store/ModalContextProvider'
 import { totalQuantity } from 'store/CartSlice'
 
 const CartIcon = (): JSX.Element => {
-  const { onOpen } = useContext(ModalContext)
+  const { onCartModalOpen } = useModal()
   const quantity = useSelector(totalQuantity)
 
   return (
@@ -16,7 +15,7 @@ const CartIcon = (): JSX.Element => {
       bg="transparent"
       border="none"
       p="0"
-      onClick={onOpen}
+      onClick={onCartModalOpen}
       aria-label="Show Cart"
       _hover={{
         bg: 'transparent',

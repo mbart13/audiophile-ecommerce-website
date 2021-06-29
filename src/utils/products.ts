@@ -29,9 +29,7 @@ export const getProductsByCategory = (category: string): Product[] => {
     .sort((a, b) => Number(b.new) - Number(a.new))
 }
 
-export const getProductBySlug = (
-  slug: string | string[] | undefined
-): Product | undefined => {
+export const getProductBySlug = (slug: string): Product | undefined => {
   return readData().find(product => product.slug === slug)
 }
 

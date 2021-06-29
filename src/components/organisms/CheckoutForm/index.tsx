@@ -15,6 +15,7 @@ import FormLegend from 'components/atoms/FormLegend'
 import FormField from 'components/molecules/FormField'
 import Radio from 'components/atoms/Radio'
 import Summary from 'components/molecules/Summary'
+import { useModal } from 'store/ModalContextProvider'
 
 type Inputs = {
   name: string
@@ -34,6 +35,7 @@ const CheckoutForm = (): JSX.Element => {
     handleSubmit,
     formState: { errors },
   } = useForm<Inputs>()
+  const { onConfirmationModalOpen } = useModal()
   const options = ['e-Money', 'Cash on Delivery']
   const [checkedOption, setCheckedOption] = useState(options[0])
 
@@ -52,6 +54,7 @@ const CheckoutForm = (): JSX.Element => {
   const onSubmit: SubmitHandler<Inputs> = data => {
     console.log('form submitted')
     console.log(data)
+    onConfirmationModalOpen()
   }
 
   return (

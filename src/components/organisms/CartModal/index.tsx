@@ -9,11 +9,10 @@ import {
   List,
   useToast,
 } from '@chakra-ui/react'
-import { useContext, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Link from 'next/link'
 
-import { ModalContext } from 'store/ModalContextProvider'
+import { useModal } from 'store/ModalContextProvider'
 import CartItem from 'components/molecules/CartItem'
 import {
   cartItems,
@@ -27,14 +26,8 @@ const CartModal = (): JSX.Element => {
   const amount = useSelector(totalAmount)
   const quantity = useSelector(totalQuantity)
   const dispatch = useDispatch()
-  const { isOpen, onClose } = useContext(ModalContext)
+  const { isCartModalOpen, onCartModalClose } = useModal()
   const toast = useToast()
-
-  useEffect(() => {
-    isOpen
-      ? (document.body.style.overflowY = 'hidden')
-      : (document.body.style.overflowY = 'initial')
-  }, [isOpen])
 
   const emptyCart = () => {
     dispatch(clearCart())
@@ -48,7 +41,11 @@ const CartModal = (): JSX.Element => {
   }
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} preserveScrollBarGap={false}>
+    <Modal
+      isOpen={isCartModalOpen}
+      onClose={onCartModalClose}
+      preserveScrollBarGap={false}
+    >
       <ModalOverlay px="1.5rem" />
       <ModalContent
         p="2rem"
@@ -90,7 +87,7 @@ const CartModal = (): JSX.Element => {
           </Text>
         </HStack>
         <Link href="/checkout">
-          <Button as="a" cursor="pointer" onClick={onClose}>
+          <Button as="a" cursor="pointer" onClick={onCartModalClose}>
             Checkout
           </Button>
         </Link>

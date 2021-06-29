@@ -8,6 +8,7 @@ import {
   Button,
 } from '@chakra-ui/react'
 import { useSelector } from 'react-redux'
+
 import { cartItems, totalAmount } from 'store/CartSlice'
 import { SHIPPING_FEE, TAX_RATE } from 'constants/fees'
 import SummaryLine from 'components/molecules/SummaryLine'
