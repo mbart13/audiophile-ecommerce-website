@@ -28,36 +28,47 @@ const Summary = (): JSX.Element => {
       <Heading fontSize={{ base: '1.125rem' }} letterSpacing="0.0806rem">
         Summary
       </Heading>
-      <List as="ul" spacing="1.5rem" mt="2rem">
-        {items.map(item => (
-          <HStack align="center" as="li" key={item.id} spacing="1.5rem">
-            <Image src={item.cartImage} borderRadius="0.5rem" boxSize="4rem" />
-            <Box width="100%">
-              <HStack justify="space-between" width="100%">
-                <Text
-                  fontWeight="bold"
-                  fontSize="0.9375rem"
-                  color="black"
-                  textTransform="uppercase"
-                >
-                  {item.shortName}
-                </Text>
-                <Text
-                  fontWeight="bold"
-                  fontSize="0.9375rem"
-                  alignSelf="flex-start"
-                >
-                  x{item.quantity}
-                </Text>
-              </HStack>
+      {items.length > 0 ? (
+        <List as="ul" spacing="1.5rem" mt="2rem">
+          {items.map(item => (
+            <HStack align="center" as="li" key={item.id} spacing="1.5rem">
+              <Image
+                src={item.cartImage}
+                borderRadius="0.5rem"
+                boxSize="4rem"
+              />
+              <Box width="100%">
+                <HStack justify="space-between" width="100%">
+                  <Text
+                    fontWeight="bold"
+                    fontSize="0.9375rem"
+                    color="black"
+                    textTransform="uppercase"
+                  >
+                    {item.shortName}
+                  </Text>
+                  <Text
+                    fontWeight="bold"
+                    fontSize="0.9375rem"
+                    alignSelf="flex-start"
+                  >
+                    x{item.quantity}
+                  </Text>
+                </HStack>
 
-              <Text fontWeight="bold" fontSize="0.875rem">
-                $ {item.price.toLocaleString()}
-              </Text>
-            </Box>
-          </HStack>
-        ))}
-      </List>
+                <Text fontWeight="bold" fontSize="0.875rem">
+                  $ {item.price.toLocaleString()}
+                </Text>
+              </Box>
+            </HStack>
+          ))}
+        </List>
+      ) : (
+        <Text textAlign="center" mt="1.5rem" fontWeight="bold">
+          No Items in cart
+        </Text>
+      )}
+
       <Box mt="2rem">
         <SummaryLine name="total" amount={cartTotal.toLocaleString()} />
         <SummaryLine name="shipping" amount={SHIPPING_FEE.toLocaleString()} />
@@ -68,7 +79,7 @@ const Summary = (): JSX.Element => {
           mt="1.5rem"
           grandTotal
         />
-        <Button width="100%" mt="2rem">
+        <Button type="submit" width="100%" mt="2rem" isDisabled={!items.length}>
           Continue & Pay
         </Button>
       </Box>

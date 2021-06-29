@@ -19,6 +19,12 @@ const Button = {
       _hover: {
         bg: 'accentLight',
       },
+      _disabled: {
+        bg: 'accent',
+      },
+      ':hover[disabled]': {
+        bg: 'accent',
+      },
     },
     secondary: {
       bg: 'transparent',
