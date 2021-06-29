@@ -2,14 +2,14 @@ export interface Product {
   id: number
   slug: string
   name: string
-  shortName?: string
+  shortName: string
   image?: CategoryImage
-  cartImage?: string
+  cartImage: string
   cartQuantity?: number
   category: string
   categoryImage: CategoryImage
   new: boolean
-  price?: number
+  price: number
   description?: string
   features?: string
   includedItems?: IncludedItem[]

@@ -12,7 +12,7 @@ type FormFieldProps = {
 
 const FormField = forwardRef<HTMLInputElement, FormFieldProps>((props, ref) => {
   const { label, placeholder, type = 'text', gridArea, ...other } = props
-  const isError = () => (props['errors'] ? 'isError' : '')
+
   let errorMessage
   if (props.errors) {
     errorMessage = props.errors.message
@@ -43,7 +43,7 @@ const FormField = forwardRef<HTMLInputElement, FormFieldProps>((props, ref) => {
         type={type}
         placeholder={placeholder}
         border="1px solid"
-        borderColor={isError() ? 'inputError' : 'inputBorder'}
+        borderColor={props['errors'] ? 'inputError' : 'inputBorder'}
         id={label}
       />
     </Box>
@@ -51,4 +51,5 @@ const FormField = forwardRef<HTMLInputElement, FormFieldProps>((props, ref) => {
 })
 
 FormField.displayName = 'FormField'
+
 export default FormField
