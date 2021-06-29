@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import CartItem from 'models/CartItem'
 import { RootState } from 'store'
 
@@ -14,7 +14,7 @@ const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
-    addItemToCart: (state, action) => {
+    addItemToCart: (state, action: PayloadAction<CartItem>) => {
       const addedItem = action.payload
       const existingItem = state.items.find(item => item.id === addedItem.id)
       state.totalQuantity += addedItem.quantity
@@ -24,7 +24,7 @@ const cartSlice = createSlice({
         existingItem.quantity += addedItem.quantity
       }
     },
-    increaseQuantity: (state, action) => {
+    increaseQuantity: (state, action: PayloadAction<number>) => {
       state.totalQuantity++
       state.items = state.items.map(item => {
         if (item.id === action.payload) {
@@ -33,7 +33,7 @@ const cartSlice = createSlice({
         return item
       })
     },
-    decreaseQuantity: (state, action) => {
+    decreaseQuantity: (state, action: PayloadAction<number>) => {
       state.totalQuantity--
       state.items = state.items
         .map(item => {
@@ -65,6 +65,7 @@ export const totalAmount = (state: RootState): number => {
 export const totalQuantity = (state: RootState): number =>
   state.cart.totalQuantity
 
-export const cartActions = cartSlice.actions
+export const { addItemToCart, increaseQuantity, decreaseQuantity, clearCart } =
+  cartSlice.actions
 
-export default cartSlice
+export default cartSlice.reducer

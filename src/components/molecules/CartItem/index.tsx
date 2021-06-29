@@ -3,16 +3,16 @@ import { useDispatch } from 'react-redux'
 
 import ProductQuantity from 'components/atoms/ProductQuantity'
 import CartItemType from 'models/CartItem'
-import { cartActions } from 'store/CartSlice'
+import { increaseQuantity, decreaseQuantity } from 'store/CartSlice'
 
 const CartItem: React.FC<{ item: CartItemType }> = ({ item }): JSX.Element => {
   const dispatch = useDispatch()
 
   const increment = () => {
-    dispatch(cartActions.increaseQuantity(item.id))
+    dispatch(increaseQuantity(item.id))
   }
   const decrement = () => {
-    dispatch(cartActions.decreaseQuantity(item.id))
+    dispatch(decreaseQuantity(item.id))
   }
 
   return (

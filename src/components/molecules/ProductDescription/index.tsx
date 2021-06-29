@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
-import { Box, Heading, Text, Button, HStack } from '@chakra-ui/react'
+import { Box, Heading, Text, Button, HStack, useToast } from '@chakra-ui/react'
 import { useDispatch } from 'react-redux'
 import { Product } from 'models/Product'
-import { cartActions } from 'store/CartSlice'
-import { useToast } from '@chakra-ui/react'
+import { addItemToCart } from 'store/CartSlice'
 
 import ProductQuantity from 'components/atoms/ProductQuantity'
 
@@ -14,7 +13,7 @@ const ProductDescription = ({ product }: { product: Product }): JSX.Element => {
 
   const addToCart = () => {
     dispatch(
-      cartActions.addItemToCart({
+      addItemToCart({
         id: product.id,
         shortName: product.shortName,
         cartImage: product.cartImage,
@@ -23,8 +22,7 @@ const ProductDescription = ({ product }: { product: Product }): JSX.Element => {
       })
     )
     toast({
-      title: 'Item added to cart',
-      description: `${product.name}`,
+      title: `Item '${product.name}' was added to cart`,
       status: 'success',
       duration: 4000,
       position: 'top-left',
