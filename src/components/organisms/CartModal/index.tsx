@@ -7,6 +7,7 @@ import {
   HStack,
   Button,
   List,
+  useToast,
 } from '@chakra-ui/react'
 import { useContext, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
@@ -16,9 +17,9 @@ import { ModalContext } from 'store/ModalContextProvider'
 import CartItem from 'components/molecules/CartItem'
 import {
   cartItems,
+  clearCart,
   totalAmount,
   totalQuantity,
-  cartActions,
 } from 'store/CartSlice'
 
 const CartModal = (): JSX.Element => {
@@ -27,6 +28,7 @@ const CartModal = (): JSX.Element => {
   const quantity = useSelector(totalQuantity)
   const dispatch = useDispatch()
   const { isOpen, onClose } = useContext(ModalContext)
+  const toast = useToast()
 
   useEffect(() => {
     isOpen
@@ -34,8 +36,15 @@ const CartModal = (): JSX.Element => {
       : (document.body.style.overflowY = 'initial')
   }, [isOpen])
 
-  const clearCart = () => {
-    dispatch(cartActions.clearCart())
+  const emptyCart = () => {
+    dispatch(clearCart())
+    toast({
+      title: 'Cart is empty',
+      status: 'success',
+      duration: 4000,
+      position: 'top-left',
+      isClosable: true,
+    })
   }
 
   return (
@@ -59,7 +68,7 @@ const CartModal = (): JSX.Element => {
             textTransform="capitalize"
             m="0"
             textDecoration="underline"
-            onClick={clearCart}
+            onClick={emptyCart}
             _hover={{
               color: 'accent',
             }}

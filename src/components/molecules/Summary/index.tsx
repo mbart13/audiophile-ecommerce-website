@@ -7,32 +7,17 @@ import {
   List,
   Button,
 } from '@chakra-ui/react'
-
-const data = [
-  {
-    id: 4,
-    shortName: 'XX99 MK II',
-    cartImage: '/images/cart/image-xx99-mark-two-headphones.jpg',
-    price: 2999,
-    quantity: 1,
-  },
-  {
-    id: 3,
-    shortName: 'XX59',
-    cartImage: '/images/cart/image-xx59-headphones.jpg',
-    price: 899,
-    quantity: 2,
-  },
-  {
-    id: 5,
-    shortName: 'YX1',
-    cartImage: '/images/cart/image-yx1-earphones.jpg',
-    price: 599,
-    quantity: 1,
-  },
-]
+import { useSelector } from 'react-redux'
+import { cartItems, totalAmount } from 'store/CartSlice'
+import { SHIPPING_FEE, TAX_RATE } from 'constants/fees'
+import SummaryLine from 'components/molecules/SummaryLine'
 
 const Summary = (): JSX.Element => {
+  const items = useSelector(cartItems)
+  const cartTotal = useSelector(totalAmount)
+  const tax = TAX_RATE * cartTotal
+  const grandTotal = cartTotal + tax + SHIPPING_FEE
+
   return (
     <Box
       px={{ base: '1.5rem', sm: '2rem' }}
@@ -44,7 +29,7 @@ const Summary = (): JSX.Element => {
         Summary
       </Heading>
       <List as="ul" spacing="1.5rem" mt="2rem">
-        {data.map(item => (
+        {items.map(item => (
           <HStack align="center" as="li" key={item.id} spacing="1.5rem">
             <Image src={item.cartImage} borderRadius="0.5rem" boxSize="4rem" />
             <Box width="100%">
@@ -74,50 +59,15 @@ const Summary = (): JSX.Element => {
         ))}
       </List>
       <Box mt="2rem">
-        <HStack justify="space-between">
-          <Text textTransform="uppercase">Total</Text>
-          <Text
-            textTransform="uppercase"
-            fontWeight="bold"
-            fontSize="1.125rem"
-            color="black"
-          >
-            $ 5,396
-          </Text>
-        </HStack>
-        <HStack justify="space-between">
-          <Text textTransform="uppercase">Shipping</Text>
-          <Text
-            textTransform="uppercase"
-            fontWeight="bold"
-            fontSize="1.125rem"
-            color="black"
-          >
-            $ 50
-          </Text>
-        </HStack>
-        <HStack justify="space-between">
-          <Text textTransform="uppercase">VAT (Included)</Text>
-          <Text
-            textTransform="uppercase"
-            fontWeight="bold"
-            fontSize="1.125rem"
-            color="black"
-          >
-            $ 1,079
-          </Text>
-        </HStack>
-        <HStack justify="space-between" mt="1.5rem">
-          <Text textTransform="uppercase">Grand Total</Text>
-          <Text
-            textTransform="uppercase"
-            fontWeight="bold"
-            fontSize="1.125rem"
-            color="accent"
-          >
-            $ 5,446
-          </Text>
-        </HStack>
+        <SummaryLine name="total" amount={cartTotal.toLocaleString()} />
+        <SummaryLine name="shipping" amount={SHIPPING_FEE.toLocaleString()} />
+        <SummaryLine name="vat (included)" amount={tax.toLocaleString()} />
+        <SummaryLine
+          name="Grand Total"
+          amount={grandTotal.toLocaleString()}
+          mt="1.5rem"
+          grandTotal
+        />
         <Button width="100%" mt="2rem">
           Continue & Pay
         </Button>
