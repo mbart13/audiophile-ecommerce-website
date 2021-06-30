@@ -14,16 +14,14 @@ import {
 import { useSelector, useDispatch } from 'react-redux'
 import Link from 'next/link'
 
-import { clearCart, cartItems, totalAmount } from 'store/CartSlice'
+import { clearCart, cartItems } from 'store/CartSlice'
 import { useModal } from 'store/ModalContextProvider'
 import SummaryItem from 'components/molecules/SummaryItem/'
-import { SHIPPING_FEE, TAX_RATE } from 'constants/fees'
+import useCartTotals from 'hooks/useCartTotals'
 
 const CheckoutModal = (): JSX.Element => {
   const items = useSelector(cartItems)
-  const cartTotal = useSelector(totalAmount)
-  const tax = TAX_RATE * cartTotal
-  const grandTotal = cartTotal + tax + SHIPPING_FEE
+  const { grandTotal } = useCartTotals()
   const [showMore, setShowMore] = useBoolean(false)
   const { isCheckoutModalOpen, onCheckoutModalClose } = useModal()
   const dispatch = useDispatch()

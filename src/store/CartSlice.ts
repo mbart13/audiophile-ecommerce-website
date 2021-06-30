@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 import CartItem from 'models/CartItem'
-import { RootState } from 'store'
-import { loadCart } from 'utils/localStorage'
+import store, { RootState } from 'store'
+import { loadCart, saveCart } from 'utils/localStorage'
 
 export type CartSlice = {
   items: CartItem[]
@@ -12,6 +12,12 @@ export type CartSlice = {
 const initialCartState: CartSlice = {
   items: [],
   totalQuantity: 0,
+}
+
+if (store) {
+  store.subscribe(() => {
+    saveCart(store.getState().cart)
+  })
 }
 
 const persistedCart = loadCart()

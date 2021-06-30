@@ -9,15 +9,14 @@ import {
 } from '@chakra-ui/react'
 import { useSelector } from 'react-redux'
 
-import { cartItems, totalAmount } from 'store/CartSlice'
-import { SHIPPING_FEE, TAX_RATE } from 'constants/fees'
+import { cartItems } from 'store/CartSlice'
+import { SHIPPING_FEE } from 'constants/fees'
 import SummaryLine from 'components/molecules/SummaryLine'
+import useCartTotals from 'hooks/useCartTotals'
 
 const Summary = (): JSX.Element => {
   const items = useSelector(cartItems)
-  const cartTotal = useSelector(totalAmount)
-  const tax = TAX_RATE * cartTotal
-  const grandTotal = cartTotal + tax + SHIPPING_FEE
+  const { cartTotal, tax, grandTotal } = useCartTotals()
 
   return (
     <Box

@@ -17,6 +17,6 @@ export const saveCart = (cart: CartSlice): void => {
     const serializedCart = JSON.stringify(cart)
     localStorage.setItem('cart', serializedCart)
   } catch (err) {
-    console.log('error while cart saving to local storage', err)
+    console.log('error while saving cart to local storage', err)
   }
 }

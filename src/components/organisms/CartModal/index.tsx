@@ -13,8 +13,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import Link from 'next/link'
 import { useModal } from 'store/ModalContextProvider'
 import CartItem from 'components/molecules/CartItem'
-import { saveCart } from 'utils/localStorage'
-import store from 'store'
+
 import {
   cartItems,
   clearCart,
@@ -29,10 +28,6 @@ const CartModal = (): JSX.Element => {
   const dispatch = useDispatch()
   const { isCartModalOpen, onCartModalClose } = useModal()
   const toast = useToast()
-
-  store.subscribe(() => {
-    saveCart(store.getState().cart)
-  })
 
   const emptyCart = () => {
     dispatch(clearCart())
