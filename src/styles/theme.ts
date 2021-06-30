@@ -21,6 +21,7 @@ const theme = extendTheme({
     inputError: '#CD2C2C',
   },
   fonts: {
+    heading: `'Manrope', sans-serif`,
     body: `'Manrope', sans-serif`,
   },
   sizes: {

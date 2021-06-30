@@ -86,7 +86,7 @@ const CartModal = (): JSX.Element => {
             $ {amount.toLocaleString()}
           </Text>
         </HStack>
-        <Link href="/checkout">
+        <Link href="/checkout" passHref>
           <Button as="a" cursor="pointer" onClick={onCartModalClose}>
             Checkout
           </Button>

@@ -74,7 +74,7 @@ const CategoryPageItem: React.FC<Product> = ({
         >
           {description}
         </Text>
-        <Link href={`/${category}/${slug}`}>
+        <Link href={`/${category}/${slug}`} passHref>
           <Button as="a" cursor="pointer">
             See Product
           </Button>

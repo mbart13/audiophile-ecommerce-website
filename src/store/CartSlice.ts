@@ -1,13 +1,16 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+
 import CartItem from 'models/CartItem'
 import { RootState } from 'store'
 
 const initialState: {
   items: CartItem[]
   totalQuantity: number
+  grandTotal: number
 } = {
   items: [],
   totalQuantity: 0,
+  grandTotal: 0,
 }
 
 const cartSlice = createSlice({

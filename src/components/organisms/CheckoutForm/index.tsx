@@ -35,7 +35,7 @@ const CheckoutForm = (): JSX.Element => {
     handleSubmit,
     formState: { errors },
   } = useForm<Inputs>()
-  const { onConfirmationModalOpen } = useModal()
+  const { onCheckoutModalOpen } = useModal()
   const options = ['e-Money', 'Cash on Delivery']
   const [checkedOption, setCheckedOption] = useState(options[0])
 
@@ -54,7 +54,7 @@ const CheckoutForm = (): JSX.Element => {
   const onSubmit: SubmitHandler<Inputs> = data => {
     console.log('form submitted')
     console.log(data)
-    onConfirmationModalOpen()
+    onCheckoutModalOpen()
   }
 
   return (
@@ -90,7 +90,7 @@ const CheckoutForm = (): JSX.Element => {
                 required: 'Field cannot be empty',
                 pattern: {
                   value: /^[^<>%$#^*]*$/,
-                  message: 'wrong format',
+                  message: 'Wrong format',
                 },
               })}
               aria-invalid={errors.name ? 'true' : 'false'}
@@ -145,7 +145,7 @@ const CheckoutForm = (): JSX.Element => {
                 required: 'Field cannot be empty',
                 pattern: {
                   value: /^[0-9]{5}(?:-[0-9]{4})?$/,
-                  message: 'wrong format',
+                  message: 'Wrong format',
                 },
               })}
               aria-invalid={errors.ZIPCode ? 'true' : 'false'}
@@ -208,7 +208,7 @@ const CheckoutForm = (): JSX.Element => {
                   required: 'Field cannot be empty',
                   pattern: {
                     value: /^[0-9]{9}$/,
-                    message: 'wrong format',
+                    message: 'Wrong format',
                   },
                 })}
                 aria-invalid={errors.eMoneyNumber ? 'true' : 'false'}
@@ -222,7 +222,7 @@ const CheckoutForm = (): JSX.Element => {
                   required: 'Field cannot be empty',
                   pattern: {
                     value: /^[0-9]{4}$/,
-                    message: 'wrong format',
+                    message: 'Wrong format',
                   },
                 })}
                 aria-invalid={errors.eMoneyPin ? 'true' : 'false'}

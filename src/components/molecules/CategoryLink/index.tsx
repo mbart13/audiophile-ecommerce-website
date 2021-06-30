@@ -25,7 +25,7 @@ const CategoryLink = ({
         },
       }}
     >
-      <Link href={url}>
+      <Link href={url} passHref>
         <a>
           <Box pt="5.5rem" pb="1.375rem">
             <Image

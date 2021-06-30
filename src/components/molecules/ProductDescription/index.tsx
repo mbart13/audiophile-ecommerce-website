@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import { Box, Heading, Text, Button, HStack, useToast } from '@chakra-ui/react'
 import { useDispatch } from 'react-redux'
+
 import { Product } from 'models/Product'
 import { addItemToCart } from 'store/CartSlice'
-
 import ProductQuantity from 'components/atoms/ProductQuantity'
 
 const ProductDescription = ({ product }: { product: Product }): JSX.Element => {

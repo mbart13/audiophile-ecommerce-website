@@ -28,7 +28,7 @@ const ZX7Speaker = (): JSX.Element => {
         <Heading mb="2rem" fontSize="1.75rem" color="black">
           ZX7 Speaker
         </Heading>
-        <Link href="/speakers/zx7-speaker">
+        <Link href="/speakers/zx7-speaker" passHref>
           <Button variant="secondary">See Product</Button>
         </Link>
       </Box>

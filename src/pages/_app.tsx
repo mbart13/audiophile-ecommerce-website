@@ -8,7 +8,7 @@ import Header from 'components/organisms/Header'
 import Footer from 'components/organisms/Footer'
 import ModalContextProvider from 'store/ModalContextProvider'
 import CartModal from 'components/organisms/CartModal'
-import ConfirmationModal from 'components/organisms/ConfirmationModal'
+import CheckoutModal from 'components/organisms/CheckoutModal'
 
 export default function App({ Component, pageProps }: AppProps): JSX.Element {
   return (
@@ -19,7 +19,7 @@ export default function App({ Component, pageProps }: AppProps): JSX.Element {
           <Component {...pageProps} />
           <Footer />
           <CartModal />
-          <ConfirmationModal />
+          <CheckoutModal />
         </ModalContextProvider>
       </Provider>
     </ChakraProvider>
