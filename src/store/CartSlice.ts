@@ -2,20 +2,23 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 import CartItem from 'models/CartItem'
 import { RootState } from 'store'
+import { loadCart } from 'utils/localStorage'
 
-const initialState: {
+export type CartSlice = {
   items: CartItem[]
   totalQuantity: number
-  grandTotal: number
-} = {
+}
+
+const initialCartState: CartSlice = {
   items: [],
   totalQuantity: 0,
-  grandTotal: 0,
 }
+
+const persistedCart = loadCart()
 
 const cartSlice = createSlice({
   name: 'cart',
-  initialState,
+  initialState: persistedCart ? persistedCart : initialCartState,
   reducers: {
     addItemToCart: (state, action: PayloadAction<CartItem>) => {
       const addedItem = action.payload
@@ -48,7 +51,7 @@ const cartSlice = createSlice({
         .filter(item => item.quantity > 0)
     },
     clearCart: () => {
-      return initialState
+      return initialCartState
     },
   },
 })

@@ -28,6 +28,7 @@ const FormField = forwardRef<HTMLInputElement, FormFieldProps>((props, ref) => {
           htmlFor={label}
           display="inline-block"
           mb={2}
+          color={props['errors'] ? 'inputError' : 'black'}
         >
           {label}
         </Box>
