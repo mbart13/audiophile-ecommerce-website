@@ -11,7 +11,13 @@ const ZX9Speaker = (): JSX.Element => {
       pt={{ base: '3.4375rem', lg: '6rem' }}
       pb={{ base: '3.4375rem', lg: 0 }}
       borderRadius="0.5rem"
-      // background="url(/images/home/desktop/pattern-circles.svg) top/cover no-repeat"
+      background="url(/images/home/desktop/pattern-circles.svg) no-repeat"
+      backgroundSize="cover"
+      backgroundPosition={{
+        base: '50% -8.125rem',
+        md: '50% -16.125rem',
+        lg: '-15rem -9.125rem',
+      }}
       backgroundColor="accent"
       overflowY="hidden"
     >

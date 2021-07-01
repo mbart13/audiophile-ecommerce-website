@@ -23,12 +23,16 @@ const MenuIcon = (): JSX.Element => {
             src="/images/shared/tablet/icon-close-menu.svg"
             width={16}
             height={15}
+            aria-hidden="true"
+            alt=""
           ></Image>
         ) : (
           <Image
             src="/images/shared/tablet/icon-hamburger.svg"
             width={16}
             height={15}
+            aria-hidden="true"
+            alt=""
           ></Image>
         )
       }

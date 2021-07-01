@@ -1,4 +1,4 @@
-import { FormLabel, Box } from '@chakra-ui/react'
+import { Box } from '@chakra-ui/react'
 
 const FormLegend: React.FC = ({ children }): JSX.Element => {
   return (

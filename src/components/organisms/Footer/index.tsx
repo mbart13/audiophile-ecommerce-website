@@ -43,7 +43,7 @@ const Footer = (): JSX.Element => {
         </Stack>
         <SimpleGrid
           templateColumns={{ sm: '50% 1fr' }}
-          templateAreas={{ sm: '"a a""b c"', md: '"a c""b c"' }}
+          templateAreas={{ sm: '"a a""b c"', lg: '"a c""b c"' }}
           gap="3rem"
           mt="3rem"
         >

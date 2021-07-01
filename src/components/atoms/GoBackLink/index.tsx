@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 
 const GoBackLink = (): JSX.Element => {
   const router = useRouter()
+
   return (
     <Button
       as="a"
