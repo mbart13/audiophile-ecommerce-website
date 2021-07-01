@@ -9,6 +9,7 @@ import Footer from 'components/organisms/Footer'
 import ModalContextProvider from 'store/ModalContextProvider'
 import CartModal from 'components/organisms/CartModal'
 import CheckoutModal from 'components/organisms/CheckoutModal'
+import Overlay from './../components/atoms/Overlay/index'
 
 export default function App({ Component, pageProps }: AppProps): JSX.Element {
   return (
@@ -20,6 +21,7 @@ export default function App({ Component, pageProps }: AppProps): JSX.Element {
           <Footer />
           <CartModal />
           <CheckoutModal />
+          <Overlay />
         </ModalContextProvider>
       </Provider>
     </ChakraProvider>

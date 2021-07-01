@@ -7,14 +7,14 @@ import BestGear from 'components/molecules/BestGear'
 
 const HomePage = (): JSX.Element => {
   return (
-    <>
+    <main>
       <Hero />
-      <Container maxW="container.lg" px={6} as="main">
+      <Container maxW="container.lg" px={6}>
         <CategoriesLinks />
         <MainGallery />
         <BestGear />
       </Container>
-    </>
+    </main>
   )
 }
 

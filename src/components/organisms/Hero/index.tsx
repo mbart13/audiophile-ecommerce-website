@@ -4,6 +4,7 @@ import Link from 'next/link'
 const Hero = (): JSX.Element => {
   return (
     <Box
+      as="section"
       position="relative"
       bg="black"
       zIndex="1"

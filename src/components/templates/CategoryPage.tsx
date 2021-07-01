@@ -1,15 +1,24 @@
 import { useRouter } from 'next/router'
 import { Box, Container, Heading } from '@chakra-ui/react'
+import { useEffect } from 'react'
 
 import ProductsList from 'components/organisms/ProductsList'
 import CategoriesLinks from 'components/organisms/CategoriesLinks'
 import BestGear from 'components/molecules/BestGear'
 import { Product } from 'models/Product'
+import { useDispatch } from 'react-redux'
+import { closeNav } from 'store/UISlice'
 
 const Category: React.FC<{ products: Product[] }> = ({
   products,
 }): JSX.Element => {
   const { query } = useRouter()
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(closeNav())
+  }, [query, dispatch])
+
   return (
     <Box as="main">
       <Heading

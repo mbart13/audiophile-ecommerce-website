@@ -1,21 +1,24 @@
 import { IconButton } from '@chakra-ui/react'
 import Image from 'next/image'
-import { useState } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+
+import { isNavOpen, toggleNav } from 'store/UISlice'
 
 const MenuIcon = (): JSX.Element => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const navOpen = useSelector(isNavOpen)
+  const dispatch = useDispatch()
 
   return (
     <IconButton
-      aria-label={isMenuOpen ? 'Close Menu' : 'Open Menu'}
+      aria-label={navOpen ? 'Close Menu' : 'Open Menu'}
       mr={{ sm: '2.625rem', lg: 0 }}
       variant="unstyled"
       isRound={true}
       lineHeight={0}
-      onClick={() => setIsMenuOpen(state => !state)}
+      onClick={() => dispatch(toggleNav())}
       display={{ base: 'auto', lg: 'none' }}
       icon={
-        isMenuOpen ? (
+        navOpen ? (
           <Image
             src="/images/shared/tablet/icon-close-menu.svg"
             width={16}

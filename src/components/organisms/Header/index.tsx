@@ -1,6 +1,7 @@
-import { Box, Container } from '@chakra-ui/react'
+import { Box } from '@chakra-ui/react'
 
 import Navbar from 'components/molecules/Navbar'
+import MobileNav from 'components/molecules/MobileNav'
 
 const Header = (): JSX.Element => {
   return (
@@ -11,9 +12,8 @@ const Header = (): JSX.Element => {
       borderBottom={['1px', 'unset']}
       borderColor="divider"
     >
-      <Container maxW="container.lg" px={6}>
-        <Navbar />
-      </Container>
+      <Navbar />
+      <MobileNav />
     </Box>
   )
 }
