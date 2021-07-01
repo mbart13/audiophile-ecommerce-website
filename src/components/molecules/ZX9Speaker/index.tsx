@@ -39,6 +39,7 @@ const ZX9Speaker = (): JSX.Element => {
           mr={['auto']}
           position="relative"
           top={{ lg: '.8rem' }}
+          alt=""
         />
       </picture>
       <Box ml={{ lg: '8.625rem' }} marginInlineStart="0" pt={{ lg: '2rem' }}>

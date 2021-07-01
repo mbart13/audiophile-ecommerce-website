@@ -1,4 +1,5 @@
 import { GetStaticPaths, GetStaticProps } from 'next'
+import Head from 'next/head'
 
 import { getProductsPaths, getProductBySlug } from 'utils/products'
 import Params from 'models/Params'
@@ -8,7 +9,14 @@ import ProductPageTemplate from 'components/templates/ProductPage'
 const ProductPage: React.FC<{ product: Product }> = ({
   product,
 }): JSX.Element => {
-  return <ProductPageTemplate product={product} />
+  return (
+    <>
+      <Head>
+        <title>{`Audiophile shop - ${product.name}`}</title>
+      </Head>
+      <ProductPageTemplate product={product} />
+    </>
+  )
 }
 
 export default ProductPage

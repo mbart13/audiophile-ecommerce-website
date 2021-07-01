@@ -36,6 +36,8 @@ const CategoryLink = ({
               width="8.625rem"
               objectFit="cover"
               src={img}
+              alt=""
+              aria-hidden="true"
             />
             <Heading
               as="h2"
@@ -60,7 +62,11 @@ const CategoryLink = ({
               >
                 Shop
               </Text>
-              <Image src="/images/shared/desktop/icon-arrow-right.svg" />
+              <Image
+                src="/images/shared/desktop/icon-arrow-right.svg"
+                alt=""
+                aria-hidden="true"
+              />
             </HStack>
           </Box>
         </a>

@@ -17,6 +17,7 @@ const ProductLink: React.FC<OtherProductsProps> = ({
           objectFit="cover"
           width="100%"
           borderRadius="0.5rem"
+          alt={name}
         />
       </Box>
       <Heading

@@ -37,6 +37,7 @@ const CategoryPageItem: React.FC<Product> = ({
             objectFit="cover"
             width="100%"
             borderRadius="0.5rem"
+            alt={name}
           />
         </picture>
       </Box>

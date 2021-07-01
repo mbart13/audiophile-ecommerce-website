@@ -20,6 +20,7 @@ const YX1Earphones = (): JSX.Element => {
           src="/images/home/mobile/image-earphones-yx1.jpg"
           objectFit="cover"
           borderRadius="0.5rem"
+          alt=""
         />
       </Box>
       <Box

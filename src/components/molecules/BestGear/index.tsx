@@ -22,6 +22,7 @@ const BestGear = (): JSX.Element => {
           src="/images/shared/mobile/image-best-gear.jpg"
           objectFit="cover"
           borderRadius="0.5rem"
+          alt="man listening to music with headphones"
         />
       </Box>
       <Box flex="1" marginStart={{ lg: 0 }}>

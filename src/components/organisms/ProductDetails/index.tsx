@@ -30,6 +30,7 @@ const ProductDetails: React.FC<{ product: Product }> = ({
               objectFit="cover"
               width="100%"
               borderRadius="0.5rem"
+              alt={product.name}
             />
           </picture>
         </Box>

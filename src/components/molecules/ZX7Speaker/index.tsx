@@ -17,6 +17,7 @@ const ZX7Speaker = (): JSX.Element => {
           src="/images/home/mobile/image-speaker-zx7.jpg"
           objectFit="cover"
           width="100%"
+          alt=""
         />
       </picture>
       <Box
