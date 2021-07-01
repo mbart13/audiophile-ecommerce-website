@@ -1,5 +1,6 @@
-import { Button, Center, Image } from '@chakra-ui/react'
+import { Button, Center } from '@chakra-ui/react'
 import { useSelector } from 'react-redux'
+import Image from 'next/image'
 
 import { useModal } from 'store/ModalContextProvider'
 import { totalQuantity } from 'store/CartSlice'
@@ -23,7 +24,8 @@ const CartIcon = (): JSX.Element => {
     >
       <Image
         src="/images/shared/desktop/icon-cart.svg"
-        boxSize="1.4375rem"
+        width={23}
+        height={21}
         aria-hidden="true"
         alt=""
       ></Image>
