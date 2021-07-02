@@ -1,9 +1,57 @@
-import { Box, Container, Heading, Text, Button } from '@chakra-ui/react'
+import {
+  Box,
+  BoxProps,
+  Container,
+  Heading,
+  Text,
+  Button,
+  chakra,
+} from '@chakra-ui/react'
 import Link from 'next/link'
+
+import { motion } from 'framer-motion'
+
+const MotionBox = motion(Box)
+const MotionContainer = motion(Container)
+export const sliderContainer = {
+  hidden: { opacity: 1 },
+  show: { opacity: 1, transition: { staggerChildren: 0.15, ease: 'easeOut' } },
+}
+
+const fade = {
+  hidden: {
+    opacity: 0,
+  },
+  show: {
+    opacity: 1,
+    transition: {
+      duration: 2,
+      ease: 'easeOut',
+    },
+  },
+}
+
+const container = {
+  hidden: {
+    opacity: 0,
+  },
+  show: {
+    opacity: 1,
+    transition: {
+      delay: 2,
+      duration: 2,
+      staggerChildren: 1,
+      ease: 'easeOut',
+    },
+  },
+}
 
 const Hero = (): JSX.Element => {
   return (
-    <Box
+    <MotionBox
+      // initial={{ opacity: 0 }}
+      // animate={{ opacity: 1 }}
+      // transition={{ delay: '1', duration: '2' }}
       as="section"
       position="relative"
       bg="black"
@@ -12,27 +60,62 @@ const Hero = (): JSX.Element => {
       pt={{ base: '6rem', sm: '8rem', lg: '10rem' }}
       pb="7rem"
       textAlign={{ base: 'center', lg: 'left' }}
-      _after={{
-        content: "''",
-        position: 'absolute',
-        background:
-          "url('/images/home/mobile/image-hero.jpg') center/contain no-repeat",
-        width: '100%',
-        height: '116%',
-        top: '-6rem',
-        left: 0,
-        zIndex: '-1',
-        '@media screen and (min-width: 30em)': {
-          background:
-            "url('/images/home/tablet/image-hero.jpg') center/contain no-repeat",
-        },
-        '@media screen and (min-width: 62em)': {
-          background:
-            "url('/images/home/desktop/image-hero.jpg') center/contain no-repeat",
-        },
-      }}
+      // _after={{
+      //   content: "''",
+      //   position: 'absolute',
+      //   background:
+      //     "url('/images/home/mobile/image-hero.jpg') center/contain no-repeat",
+      //   width: '100%',
+      //   height: '116%',
+      //   top: '-6rem',
+      //   left: 0,
+      //   zIndex: '-1',
+      //   '@media screen and (min-width: 30em)': {
+      //     background:
+      //       "url('/images/home/tablet/image-hero.jpg') center/contain no-repeat",
+      //   },
+      //   '@media screen and (min-width: 62em)': {
+      //     background:
+      //       "url('/images/home/desktop/image-hero.jpg') center/contain no-repeat",
+      //   },
+      // }}
     >
-      <Container maxW="container.lg" px={6}>
+      <MotionBox
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1, duration: '2' }}
+        _after={{
+          content: "''",
+          position: 'absolute',
+          background:
+            "url('/images/home/mobile/image-hero.jpg') center/contain no-repeat",
+          width: '100%',
+          height: '116%',
+          top: '-6rem',
+          left: 0,
+          zIndex: '-1',
+          '@media screen and (min-width: 30em)': {
+            background:
+              "url('/images/home/tablet/image-hero.jpg') center/contain no-repeat",
+          },
+          '@media screen and (min-width: 62em)': {
+            background:
+              "url('/images/home/desktop/image-hero.jpg') center/contain no-repeat",
+          },
+        }}
+      ></MotionBox>
+      <MotionContainer
+        maxW="container.lg"
+        px={6}
+        initial={{ opacity: 0 }}
+        animate={{
+          opacity: 1,
+          transition: {
+            delay: '2',
+            duration: '2',
+          },
+        }}
+      >
         <Heading
           as="h1"
           fontSize={['2.25rem', '3.5rem']}
@@ -72,8 +155,8 @@ const Hero = (): JSX.Element => {
             See Product
           </Button>
         </Link>
-      </Container>
-    </Box>
+      </MotionContainer>
+    </MotionBox>
   )
 }
 

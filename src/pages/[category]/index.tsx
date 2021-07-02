@@ -8,11 +8,13 @@ import Params from 'models/Params'
 import { Product } from 'models/Product'
 
 const CategoryPage = ({ products }: { products: Product[] }): JSX.Element => {
-  const { query } = useRouter()
+  const {
+    query: { category },
+  } = useRouter()
   return (
     <>
       <Head>
-        <title>{`Audiophile shop - ${query.category}`}</title>
+        <title>{`Audiophile shop - ${category}`}</title>
       </Head>
       <CategoryTemplate products={products} />
     </>
