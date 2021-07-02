@@ -3,7 +3,6 @@ import Link from 'next/link'
 
 import { InView } from 'react-intersection-observer'
 import { motion } from 'framer-motion'
-import { fade } from 'utils/animations'
 
 const YX1Earphones = (): JSX.Element => {
   const MotionBox = motion(Box)
