@@ -1,12 +1,11 @@
 import { Box, Container, Heading, Text, Button } from '@chakra-ui/react'
 import Link from 'next/link'
-
 import { motion } from 'framer-motion'
 
-const MotionBox = motion(Box)
-const MotionContainer = motion(Container)
-
 const Hero = (): JSX.Element => {
+  const MotionBox = motion(Box)
+  const MotionButton = motion(Button)
+  const MotionContainer = motion(Container)
   return (
     <MotionBox
       as="section"
@@ -21,7 +20,7 @@ const Hero = (): JSX.Element => {
       <MotionBox
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1, duration: '2' }}
+        transition={{ delay: 0.5, duration: '2' }}
         _after={{
           content: "''",
           position: 'absolute',
@@ -49,7 +48,7 @@ const Hero = (): JSX.Element => {
         animate={{
           opacity: 1,
           transition: {
-            delay: '2',
+            delay: '1.5',
             duration: '2',
           },
         }}
