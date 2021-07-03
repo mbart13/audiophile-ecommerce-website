@@ -31,6 +31,7 @@ const ProductGallery: React.FC<ProductGalleryProps> = ({
           width="100%"
           borderRadius="0.5rem"
           height="100%"
+          alt=""
         />
       </Box>
       <Box as="picture" gridArea={{ sm: 'b' }}>

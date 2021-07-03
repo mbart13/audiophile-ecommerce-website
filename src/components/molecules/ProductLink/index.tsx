@@ -11,7 +11,7 @@ const ProductLink: React.FC<OtherProductsProps> = ({
     <Box as="li">
       <Box as="picture">
         <source media="(min-width: 62em)" srcSet={image.desktop} />
-        <source media="(min-width: 30em)" srcSet={image.tablet} />
+        <source media="(min-width: 48em)" srcSet={image.tablet} />
         <Image
           src={image.mobile}
           objectFit="cover"

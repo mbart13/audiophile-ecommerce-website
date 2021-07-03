@@ -47,20 +47,17 @@
         "first": {
           "mobile": "/images/product-yx1-earphones/mobile/image-gallery-1.jpg",
           "tablet": "/images/product-yx1-earphones/tablet/image-gallery-1.jpg",
-          "desktop": "/images/product-yx1-earphones/desktop/image-gallery-1.jpg",
-          "alt": "black earphones up close laying on surface"
+          "desktop": "/images/product-yx1-earphones/desktop/image-gallery-1.jpg"
         },
         "second": {
           "mobile": "/images/product-yx1-earphones/mobile/image-gallery-2.jpg",
           "tablet": "/images/product-yx1-earphones/tablet/image-gallery-2.jpg",
-          "desktop": "/images/product-yx1-earphones/desktop/image-gallery-2.jpg",
-          "alt": "pair of grey headset inside the case"
+          "desktop": "/images/product-yx1-earphones/desktop/image-gallery-2.jpg"
         },
         "third": {
           "mobile": "/images/product-yx1-earphones/mobile/image-gallery-3.jpg",
           "tablet": "/images/product-yx1-earphones/tablet/image-gallery-3.jpg",
-          "desktop": "/images/product-yx1-earphones/desktop/image-gallery-3.jpg",
-          "alt": "pair of grey headset with case"
+          "desktop": "/images/product-yx1-earphones/desktop/image-gallery-3.jpg"
         }
       },
       "others": [

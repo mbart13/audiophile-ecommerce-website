@@ -4,16 +4,14 @@ import { motion } from 'framer-motion'
 
 const Hero = (): JSX.Element => {
   const MotionBox = motion(Box)
-  const MotionButton = motion(Button)
   const MotionContainer = motion(Container)
   return (
     <MotionBox
-      as="section"
       position="relative"
       bg="black"
       zIndex="1"
       overflowY="hidden"
-      pt={{ base: '6rem', sm: '8rem', lg: '10rem' }}
+      pt={{ base: '11.625rem', sm: '13.625rem', lg: '15.625rem' }}
       pb="7rem"
       textAlign={{ base: 'center', lg: 'left' }}
     >

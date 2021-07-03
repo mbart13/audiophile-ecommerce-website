@@ -1,12 +1,9 @@
 import { Box, Heading, Image, Button, SimpleGrid } from '@chakra-ui/react'
 import Link from 'next/link'
 
-import { InView } from 'react-intersection-observer'
-import { motion } from 'framer-motion'
 import FadeInOnScroll from 'components/organisms/FadeInOnScroll'
 
 const YX1Earphones = (): JSX.Element => {
-  const MotionBox = motion(Box)
   return (
     <SimpleGrid
       columns={[1, 2]}

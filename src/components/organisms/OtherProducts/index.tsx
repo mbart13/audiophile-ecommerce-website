@@ -22,8 +22,8 @@ const OtherProducts: React.FC<{ other: OtherProductsProps[] | undefined }> = ({
       <Stack
         as="ul"
         mt={{ base: '2.5rem', sm: '3.5rem', lg: '4rem' }}
-        spacing={{ base: '3.5rem' }}
-        direction={{ base: 'column', sm: 'row' }}
+        spacing={{ base: '3.5rem', md: '1rem', lg: '1.875rem' }}
+        direction={{ base: 'column', md: 'row' }}
       >
         {other?.map((product: OtherProductsProps) => (
           <ProductLink key={product.slug} {...product} />
