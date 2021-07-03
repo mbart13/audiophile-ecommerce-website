@@ -159,8 +159,7 @@ Redux is one of the oldest and most popular state management libraries for React
 Redux Toolkit is a library that makes working with Redux a lot easier, as it eliminates a lot of boilerplate. With Redux Toolkit you can create so called slices (pieces of state in your application) that combine action creators and reducers.
 It also allows you to update state in a 'mutating way' thanks to Immer library it uses under the hood.
 In the application I'm using Redux to hold mostly state of cart, persist it to local storage and retrieve it when the app is loaded.
-Dan Abramov, creator of Redux, recommends subscribing to store to persist data to local storage. So that's the approach I followed.
-You can read more about it [here](https://stackoverflow.com/questions/35305661/where-to-write-to-localstorage-in-a-redux-app).
+Dan Abramov, creator of Redux, recommends subscribing to store to persist data to local storage. So that's the approach I followed. You can read more about it [here](https://stackoverflow.com/questions/35305661/where-to-write-to-localstorage-in-a-redux-app).
 
 ## Author
 
