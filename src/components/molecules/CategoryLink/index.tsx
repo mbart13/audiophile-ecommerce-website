@@ -19,9 +19,16 @@ const CategoryLink = ({
       position="relative"
       flex="1"
       cursor="pointer"
+      _focusWithin={{
+        outline: '2px dashed red',
+        outlineOffset: '4px',
+      }}
       sx={{
         '&:hover p': {
           color: 'accent',
+        },
+        'a:focus': {
+          outline: 'none',
         },
       }}
     >
