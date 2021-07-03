@@ -1,6 +1,6 @@
-import { Box, Text, HStack, Image } from '@chakra-ui/react'
+import { Box, Text, HStack } from '@chakra-ui/react'
 import { useDispatch } from 'react-redux'
-
+import Image from 'next/image'
 import ProductQuantity from 'components/atoms/ProductQuantity'
 import CartItemType from 'models/CartItem'
 import { increaseQuantity, decreaseQuantity } from 'store/CartSlice'
@@ -18,7 +18,7 @@ const CartItem: React.FC<{ item: CartItemType }> = ({ item }): JSX.Element => {
   return (
     <HStack as="li" justify="space-between" align="center" listStyleType="none">
       <HStack align="center">
-        <Image src={item.cartImage} borderRadius="0.5rem" boxSize="4rem" />
+        <Image src={item.cartImage} width={64} height={64} alt="" />
         <Box ml="1rem">
           <Text
             fontWeight="bold"
