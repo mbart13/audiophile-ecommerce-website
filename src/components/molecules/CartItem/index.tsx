@@ -17,7 +17,7 @@ const CartItem: React.FC<{ item: CartItemType }> = ({ item }): JSX.Element => {
 
   return (
     <HStack as="li" justify="space-between" align="center" listStyleType="none">
-      <HStack align="center">
+      <HStack align="center" sx={{ img: { borderRadius: '.5rem' } }}>
         <Image src={item.cartImage} width={64} height={64} alt="" />
         <Box ml="1rem">
           <Text
