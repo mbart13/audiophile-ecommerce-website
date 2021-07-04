@@ -9,7 +9,7 @@ import {
   Stack,
 } from '@chakra-ui/react'
 import { useState } from 'react'
-import { useForm, SubmitHandler } from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 
 import FormLegend from 'components/atoms/FormLegend'
 import FormField from 'components/molecules/FormField'
@@ -34,10 +34,11 @@ const CheckoutForm = (): JSX.Element => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<Inputs>()
+  } = useForm<Inputs>({ mode: 'onChange' })
   const { onCheckoutModalOpen } = useModal()
   const options = ['e-Money', 'Cash on Delivery']
   const [checkedOption, setCheckedOption] = useState(options[0])
+  const [isDisabled, setIsDisabled] = useState(false)
 
   const handleChange = (value: string) => {
     setCheckedOption(value)
@@ -51,17 +52,19 @@ const CheckoutForm = (): JSX.Element => {
 
   const group = getRootProps()
 
-  const onSubmit: SubmitHandler<Inputs> = data => {
-    console.log('form submitted')
-    console.log(data)
-    onCheckoutModalOpen()
+  const mySubmit = (e: React.FormEvent<HTMLInputElement>) => {
+    e.preventDefault()
+    if (isDisabled) return
+    handleSubmit(() => {
+      onCheckoutModalOpen()
+    })(e)
   }
 
   return (
     <Stack
       as="form"
       noValidate
-      onSubmit={handleSubmit(onSubmit)}
+      onSubmit={mySubmit}
       direction={{ base: 'column', lg: 'row' }}
       alignItems={{ lg: 'start' }}
       spacing={{ base: '2rem' }}
@@ -245,7 +248,7 @@ const CheckoutForm = (): JSX.Element => {
           )}
         </Box>
       </Box>
-      <Summary />
+      <Summary isDisabled={isDisabled} setIsDisabled={setIsDisabled} />
     </Stack>
   )
 }

@@ -13,10 +13,21 @@ import { cartItems } from 'store/CartSlice'
 import { SHIPPING_FEE } from 'constants/fees'
 import SummaryLine from 'components/molecules/SummaryLine'
 import useCartTotals from 'hooks/useCartTotals'
+import { Dispatch, SetStateAction, useEffect } from 'react'
 
-const Summary = (): JSX.Element => {
+const Summary = ({
+  isDisabled,
+  setIsDisabled,
+}: {
+  isDisabled: boolean
+  setIsDisabled: Dispatch<SetStateAction<boolean>>
+}): JSX.Element => {
   const items = useSelector(cartItems)
   const { cartTotal, tax, grandTotal } = useCartTotals()
+
+  useEffect(() => {
+    setIsDisabled(items.length < 1)
+  }, [items, setIsDisabled])
 
   return (
     <Box
@@ -79,7 +90,7 @@ const Summary = (): JSX.Element => {
           mt="1.5rem"
           grandTotal
         />
-        <Button type="submit" width="100%" mt="2rem" isDisabled={!items.length}>
+        <Button type="submit" width="100%" mt="2rem" aria-disabled={isDisabled}>
           Continue & Pay
         </Button>
       </Box>

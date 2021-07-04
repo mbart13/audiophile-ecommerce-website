@@ -25,6 +25,9 @@ const Button = {
       ':hover[disabled]': {
         bg: 'accent',
       },
+      ':hover[aria-disabled="true"]': {
+        bg: 'accent',
+      },
     },
     secondary: {
       bg: 'transparent',

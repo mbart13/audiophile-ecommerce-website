@@ -11,9 +11,11 @@ const MenuIcon = (): JSX.Element => {
   return (
     <IconButton
       aria-label={navOpen ? 'Close Menu' : 'Open Menu'}
+      aria-expanded={navOpen ? 'true' : 'false'}
       mr={{ sm: '2.625rem', lg: 0 }}
       variant="unstyled"
       isRound={true}
+      aria-haspopup="true"
       lineHeight={0}
       onClick={() => dispatch(toggleNav())}
       display={{ base: 'auto', lg: 'none' }}

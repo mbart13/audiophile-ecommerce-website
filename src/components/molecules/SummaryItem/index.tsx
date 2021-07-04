@@ -10,7 +10,7 @@ const SummaryItem = ({ item }: { item: CartItem }): JSX.Element => {
       spacing="0.5rem"
       position="relative"
       sx={{
-        '&:last-child::after': {
+        '&:last-child:not(:first-child)::after': {
           content: "''",
           position: 'absolute',
           width: '100%',

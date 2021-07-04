@@ -31,10 +31,15 @@ const CheckoutModal = (): JSX.Element => {
     dispatch(clearCart())
   }
 
+  const onModalClose = () => {
+    onCheckoutModalClose()
+    dispatch(clearCart())
+  }
+
   return (
     <Modal
       isOpen={isCheckoutModalOpen}
-      onClose={onCheckoutModalClose}
+      onClose={onModalClose}
       preserveScrollBarGap={false}
       isCentered
     >
@@ -71,26 +76,36 @@ const CheckoutModal = (): JSX.Element => {
           overflowY="hidden"
           mb={{ base: '1.5rem', md: '3rem' }}
         >
-          <Box bg="gray" flexBasis="55%" flexGrow={1}>
-            <List as="ul" spacing="1.5rem" px="1.5rem" pt="1.5rem">
+          <Box bg="gray" flexBasis="55%" flexGrow={1} display="flex">
+            <List
+              as="ul"
+              display={items.length === 1 ? 'flex' : 'block'}
+              spacing="1.5rem"
+              px="1.5rem"
+              pt="1.5rem"
+              pb={items.length === 1 ? '1.5rem' : '0'}
+            >
               {items.slice(0, showMore ? items.length : 1).map(item => (
                 <SummaryItem item={item} key={item.id} />
               ))}
             </List>
-            <Box textAlign="center" py="1rem">
-              <Button
-                variant="link"
-                fontSize="0.75rem"
-                textTransform="initial"
-                fontWeight="bold"
-                onClick={setShowMore.toggle}
-              >
-                {showMore
-                  ? 'View less'
-                  : `and ${items.length - 1} other item(s)`}
-              </Button>
-            </Box>
+            {items.length > 1 && (
+              <Box textAlign="center" py="1rem">
+                <Button
+                  variant="link"
+                  fontSize="0.75rem"
+                  textTransform="initial"
+                  fontWeight="bold"
+                  onClick={setShowMore.toggle}
+                >
+                  {showMore
+                    ? 'View less'
+                    : `and ${items.length - 1} other item(s)`}
+                </Button>
+              </Box>
+            )}
           </Box>
+
           <Flex
             bg="black"
             px={{ base: '1.5rem', md: '2rem' }}
