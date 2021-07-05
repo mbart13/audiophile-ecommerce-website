@@ -74,16 +74,23 @@ const CheckoutModal = (): JSX.Element => {
           direction={{ base: 'column', md: 'row' }}
           borderRadius="0.5rem"
           overflowY="hidden"
+          alignItems="stretch"
           mb={{ base: '1.5rem', md: '3rem' }}
         >
-          <Box bg="gray" flexBasis="55%" flexGrow={1} display="flex">
+          <Box
+            bg="gray"
+            flexBasis="55%"
+            flexGrow={1}
+            display={items.length === 1 ? 'flex' : 'block'}
+            alignItems="center"
+          >
             <List
               as="ul"
-              display={items.length === 1 ? 'flex' : 'block'}
               spacing="1.5rem"
               px="1.5rem"
               pt="1.5rem"
               pb={items.length === 1 ? '1.5rem' : '0'}
+              width="100%"
             >
               {items.slice(0, showMore ? items.length : 1).map(item => (
                 <SummaryItem item={item} key={item.id} />

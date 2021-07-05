@@ -1,4 +1,4 @@
-import { Button, Text, Image, HStack } from '@chakra-ui/react'
+import { Button } from '@chakra-ui/react'
 
 const SkipLink = (): JSX.Element => {
   return (

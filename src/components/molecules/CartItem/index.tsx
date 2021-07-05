@@ -29,7 +29,7 @@ const CartItem: React.FC<{ item: CartItemType }> = ({ item }): JSX.Element => {
             {item.shortName}
           </Text>
           <Text fontWeight="bold" fontSize="0.875rem">
-            $ {item.price.toLocaleString()}
+            $ {item.price.toLocaleString('en-US')}
           </Text>
         </Box>
       </HStack>

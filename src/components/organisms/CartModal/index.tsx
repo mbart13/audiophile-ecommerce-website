@@ -83,7 +83,7 @@ const CartModal = (): JSX.Element => {
         <HStack justify="space-between" mb="1.5rem">
           <Text textTransform="uppercase">Total</Text>
           <Text fontSize=" 1.125rem" fontWeight="bold" color="black">
-            $ {amount.toLocaleString()}
+            $ {amount.toLocaleString('en-US')}
           </Text>
         </HStack>
         <Link href="/checkout" passHref>

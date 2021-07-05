@@ -68,7 +68,7 @@ const Summary = ({
                 </HStack>
 
                 <Text fontWeight="bold" fontSize="0.875rem">
-                  $ {item.price.toLocaleString()}
+                  $ {item.price.toLocaleString('en-US')}
                 </Text>
               </Box>
             </HStack>
@@ -81,12 +81,12 @@ const Summary = ({
       )}
 
       <Box mt="2rem">
-        <SummaryLine name="total" amount={cartTotal.toLocaleString()} />
-        <SummaryLine name="shipping" amount={SHIPPING_FEE.toLocaleString()} />
-        <SummaryLine name="vat (included)" amount={tax.toLocaleString()} />
+        <SummaryLine name="total" amount={cartTotal} />
+        <SummaryLine name="shipping" amount={SHIPPING_FEE} />
+        <SummaryLine name="vat (included)" amount={tax} />
         <SummaryLine
           name="Grand Total"
-          amount={grandTotal.toLocaleString()}
+          amount={grandTotal}
           mt="1.5rem"
           grandTotal
         />

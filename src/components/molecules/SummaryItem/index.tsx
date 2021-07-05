@@ -9,6 +9,7 @@ const SummaryItem = ({ item }: { item: CartItem }): JSX.Element => {
       key={item.id}
       spacing="0.5rem"
       position="relative"
+      width="100%"
       sx={{
         '&:last-child:not(:first-of-type)::after': {
           content: "''",
@@ -37,7 +38,7 @@ const SummaryItem = ({ item }: { item: CartItem }): JSX.Element => {
           </Text>
         </HStack>
         <Text fontWeight="bold" fontSize="0.875rem">
-          $ {item.price.toLocaleString()}
+          $ {item.price.toLocaleString('en-US')}
         </Text>
       </Box>
     </HStack>

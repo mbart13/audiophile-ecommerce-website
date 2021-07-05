@@ -73,7 +73,7 @@ const ProductDescription = ({ product }: { product: Product }): JSX.Element => {
         fontSize="1.125rem"
         color="black"
       >
-        $ {product?.price?.toLocaleString()}
+        $ {product?.price?.toLocaleString('en-US')}
       </Text>
       <HStack
         spacing={{ base: '1rem' }}

@@ -2,7 +2,7 @@ import { Text, HStack } from '@chakra-ui/react'
 
 type SummaryLineProps = {
   name: string
-  amount: string
+  amount: number
   [props: string]: unknown
   grandTotal?: boolean
 }
@@ -21,7 +21,7 @@ const SummaryLine: React.FC<SummaryLineProps> = (props): JSX.Element => {
         fontSize="1.125rem"
         color={grandTotal ? 'accent' : 'black'}
       >
-        $ {amount}
+        $ {amount.toLocaleString('en-US')}
       </Text>
     </HStack>
   )
