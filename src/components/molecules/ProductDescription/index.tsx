@@ -35,6 +35,7 @@ const ProductDescription = ({ product }: { product: Product }): JSX.Element => {
   }
 
   const decrement = () => {
+    if (quantity <= 1) return
     setQuantity(state => state - 1)
   }
 
