@@ -34,7 +34,7 @@ const CheckoutForm = (): JSX.Element => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<Inputs>({ mode: 'onChange' })
+  } = useForm<Inputs>({ mode: 'onBlur' })
   const { onCheckoutModalOpen } = useModal()
   const options = ['e-Money', 'Cash on Delivery']
   const [checkedOption, setCheckedOption] = useState(options[0])
