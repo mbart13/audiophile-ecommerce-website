@@ -20,7 +20,7 @@ const Category: React.FC<{ products: Product[] }> = ({
   }, [query, dispatch])
 
   return (
-    <Box as="main">
+    <Box as="main" id="main">
       <Heading
         as="h1"
         bg="black"

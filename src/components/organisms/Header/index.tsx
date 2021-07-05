@@ -2,6 +2,7 @@ import { Box } from '@chakra-ui/react'
 
 import Navbar from 'components/molecules/Navbar'
 import MobileNav from 'components/molecules/MobileNav'
+import SkipLink from 'components/atoms/SkipLink'
 
 const Header = (): JSX.Element => {
   return (
@@ -12,6 +13,7 @@ const Header = (): JSX.Element => {
       borderBottom={['1px', 'unset']}
       borderColor="divider"
     >
+      <SkipLink />
       <Navbar />
       <MobileNav />
     </Box>

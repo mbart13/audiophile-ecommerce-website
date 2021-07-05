@@ -8,7 +8,7 @@ const ProductPage: React.FC<{ product: Product }> = ({
   product,
 }): JSX.Element => {
   return (
-    <Container maxW="container.lg" px={6} as="main">
+    <Container maxW="container.lg" px={6} as="main" id="main">
       <GoBackLink />
       <ProductDetails product={product} />
     </Container>

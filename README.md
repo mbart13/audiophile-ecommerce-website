@@ -8,9 +8,11 @@ This is a solution to the [Audiophile e-commerce website challenge on Frontend M
   - [The challenge](#the-challenge)
   - [Screenshot](#screenshot)
   - [Links](#links)
+  - [Setup](#setup)
 - [My process](#my-process)
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
 - [Author](#author)
 
 ## Overview
@@ -19,17 +21,17 @@ This is a solution to the [Audiophile e-commerce website challenge on Frontend M
 
 Users should be able to:
 
-- View the optimal layout for the app depending on their device's screen size
-- See hover states for all interactive elements on the page
-- Add/Remove products from the cart
-- Edit product quantities in the cart
-- Fill in all fields in the checkout
-- Receive form validations if fields are missed or incorrect during checkout
-- See correct checkout totals depending on the products in the cart
-  - Shipping always adds $50 to the order
-  - VAT is calculated as 20% of the product total, excluding shipping
-- See an order confirmation modal after checking out with an order summary
-- **Bonus**: Keep track of what's in the cart, even after refreshing the browser (`localStorage` could be used for this if you're not building out a full-stack app)
+- View the optimal layout for the app depending on their device's screen size :heavy_check_mark:
+- See hover states for all interactive elements on the page :heavy_check_mark:
+- Add/Remove products from the cart :heavy_check_mark:
+- Edit product quantities in the cart :heavy_check_mark:
+- Fill in all fields in the checkout :heavy_check_mark:
+- Receive form validations if fields are missed or incorrect during checkout :heavy_check_mark:
+- See correct checkout totals depending on the products in the cart :heavy_check_mark:
+  - Shipping always adds $50 to the order :heavy_check_mark:
+  - VAT is calculated as 20% of the product total, excluding shipping :heavy_check_mark:
+- See an order confirmation modal after checking out with an order summary :heavy_check_mark:
+- **Bonus**: Keep track of what's in the cart, even after refreshing the browser (`localStorage` could be used for this if you're not building out a full-stack app) :heavy_check_mark:
 
 ### Screenshot
 
@@ -38,6 +40,20 @@ Users should be able to:
 ### Links
 
 [Live Site URL](https://audiophile-ecommerce-mbart13.vercel.app/)
+
+### Setup
+
+To run this project locally:
+
+```
+yarn && yarn dev
+```
+
+or
+
+```
+npm install && npm run dev
+```
 
 ## My process
 
@@ -51,6 +67,7 @@ Users should be able to:
 - React-Intersection-Observer
 - TypeScript
 - Atomic Design System
+- Mobile-first workflow
 
 ### What I learned
 
@@ -82,9 +99,9 @@ Another advantage of Chakra-UI is that it provides custom hooks. For example, us
 Next.js is a great framework built on top of React, that has features like file-based routing, static & server rendering, TypeScript support and many more with no configuration.
 The basic way of pre-fetching data is with a function called getStaticProps. Next.js will pre-render the page at build time using the props returned by this function. All data in the application like products details comes from products.json file prepared by Frontend Mentor team and slightly modified by me.
 
-One problem that I encountered had to do with styling of the currently active link in navigation menu. With React and React Router it was easy as it comes with special NavLink component. In Next.js it's not so easy, according to [this stack overflow answer](https://stackoverflow.com/questions/53262263/target-active-link-when-the-route-is-active-in-next-js) it requires creating your own component that would wrap Next's 'Link' component. This seemed overly complicated to me and was wondering if there is easier way.
+One problem that I encountered had to do with styling of the currently active link in navigation menu. With React and React Router it was easy as it comes with special NavLink component. In Next.js it's not so easy, according to [this stack overflow answer](https://stackoverflow.com/questions/53262263/target-active-link-when-the-route-is-active-in-next-js) it requires creating your own component that would wrap Next's 'Link' component. This seemed overly complicated to me and was wondering if there is an easier way.
 
-Then it hit me that I'm already using array of objects representing navlinks that I can iterate over in a few places in my application (header, footer, secondary nav) that looks like this:
+Then it hit me that I'm already using array of objects representing navlinks that I iterate over in a few places in my application (header, footer, secondary nav) that looks like this:
 
 ```js
 export const links = [
@@ -114,7 +131,7 @@ export const links = [
 ]
 ```
 
-I thought that I can easily use it to style active link like this:
+I figured that I can easily use it to style active link. All I had to do was to use useRouter hook that comes with next.js and returns [the path (including the query) shown in the browser](https://nextjs.org/docs/api-reference/next/router) and add this line to the existing code: 'color={asPath === link.url ? 'accent' : 'white'}
 
 ```js
 import Link from 'next/link'
@@ -149,17 +166,25 @@ const NavLinks = (): JSX.Element => {
 }
 ```
 
-All i had to do was to use useRouter hook that comes with next.js and add this line: 'color={asPath === link.url ? 'accent' : 'white'}
-
-So basically with this one line of code I had functionality I wanted, and it didn't require complicated solutions that you can find on the Internet.
+So basically with these 2 additional lines of code I had functionality I wanted, and it didn't require complicated solutions that you can find on the Internet.
 
 #### Redux Toolkit
 
 Redux is one of the oldest and most popular state management libraries for React applications, and although currently there are [many alternatives](https://leerob.io/blog/react-state-management) to choose from, in job listings for React positions you will see Redux more often than others.
-Redux Toolkit is a library that makes working with Redux a lot easier, as it eliminates a lot of boilerplate. With Redux Toolkit you can create so called slices (pieces of state in your application) that combine action creators and reducers.
-It also allows you to update state in a 'mutating way' thanks to Immer library it uses under the hood. g
+Redux Toolkit is a library that makes working with Redux a lot easier, as it eliminates a lot of boilerplate. With Redux Toolkit you can create so called slices (pieces of state in your application) that combine action creators and reducers. It automatically sets up Redux DevTools by default.
+It also allows you to update state in a 'mutating way' thanks to Immer library it uses under the hood.
 In the application I'm using Redux to hold mostly state of cart, persist it to local storage and retrieve it when the app is loaded.  
 Dan Abramov, creator of Redux, recommends subscribing to store to persist data to local storage. So that's the approach I followed. You can read more about it [here](https://stackoverflow.com/questions/35305661/where-to-write-to-localstorage-in-a-redux-app).
+
+#### Accessibility
+
+To prevent form from being submitted when cart is empty I used aria-disabled instead of 'disabled'. Using an aria attribute will make disabled buttons [more inclusive](https://css-tricks.com/making-disabled-buttons-more-inclusive/).
+
+I also added 'Skip to content' link, it lets keyboard users and screen readers jump from the top of the page to the main content without have to go through other elements in the navigation menu.
+
+### Continued development
+
+Create unit and integration tests with Jest/React-Testing-Library.
 
 ## Author
 
