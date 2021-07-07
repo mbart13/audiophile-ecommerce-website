@@ -10,7 +10,7 @@ const Hero = (): JSX.Element => {
       position="relative"
       bg="black"
       zIndex="1"
-      overflowY="hidden"
+      overflow="hidden"
       pt={{ base: '6rem', sm: '8rem', lg: '10rem' }}
       pb="7rem"
       textAlign={{ base: 'center', lg: 'left' }}

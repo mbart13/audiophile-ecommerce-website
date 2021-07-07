@@ -22,7 +22,7 @@ const ZX9Speaker = (): JSX.Element => {
           lg: '-15rem -9.125rem',
         }}
         backgroundColor="accent"
-        overflowY="hidden"
+        overflow="hidden"
       >
         <picture>
           <source
