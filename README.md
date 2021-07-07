@@ -99,7 +99,7 @@ Another advantage of Chakra-UI is that it provides custom hooks. For example, us
 Next.js is a great framework built on top of React, that has features like file-based routing, static & server rendering, TypeScript support and many more with no configuration.
 The basic way of pre-fetching data is with a function called getStaticProps. Next.js will pre-render the page at build time using the props returned by this function. All data in the application like products details comes from products.json file prepared by Frontend Mentor team and slightly modified by me.
 
-One problem that I encountered had to do with styling of the currently active link in navigation menu. With React and React Router it was easy as it comes with special NavLink component. In Next.js it's not so easy, according to [this stack overflow answer](https://stackoverflow.com/questions/53262263/target-active-link-when-the-route-is-active-in-next-js) it requires creating your own component that would wrap Next's 'Link' component. This seemed overly complicated to me and was wondering if there is an easier way.
+One problem that I encountered had to do with styling of the currently active link in navigation menu and adding aria-current="page" attribute. With React and React Router it was easy as it comes with special NavLink component. In Next.js it's not so easy, according to [this stack overflow answer](https://stackoverflow.com/questions/53262263/target-active-link-when-the-route-is-active-in-next-js) it requires creating your own component that would wrap Next's 'Link' component. This seemed overly complicated to me and was wondering if there is an easier way.
 
 Then it hit me that I'm already using array of objects representing navlinks that I iterate over in a few places in my application (header, footer, secondary nav) that looks like this:
 
@@ -132,6 +132,7 @@ export const links = [
 ```
 
 I figured that I can easily use it to style active link. All I had to do was to use useRouter hook that comes with next.js and returns [the path (including the query) shown in the browser](https://nextjs.org/docs/api-reference/next/router) and add this line to the existing code: 'color={asPath === link.url ? 'accent' : 'white'}
+However, adding 'aria-current' attribute required creating custom wrapper, so in the end NavLinks component ended up looking like this:
 
 ```js
 import Link from 'next/link'
@@ -164,9 +165,25 @@ const NavLinks = (): JSX.Element => {
     </Box>
   )
 }
-```
 
-So basically with these 2 additional lines of code I had functionality I wanted, and it didn't require complicated solutions that you can find on the Internet.
+const NavLink: React.FC<{ href: string; active: boolean }> = ({
+  href,
+  active,
+  children,
+}): JSX.Element => {
+  const child = React.Children.only(children)
+
+  return (
+    <Link href={href} passHref>
+      {React.cloneElement(child as React.ReactElement, {
+        'aria-current': active ? 'page' : null,
+      })}
+    </Link>
+  )
+}
+
+export default NavLinks
+```
 
 #### Redux Toolkit
 

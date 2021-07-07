@@ -1,4 +1,5 @@
 import { HStack, Box } from '@chakra-ui/react'
+import React from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
@@ -22,11 +23,29 @@ const NavLinks = (): JSX.Element => {
             color={asPath === link.url ? 'accent' : 'white'}
             textTransform="uppercase"
           >
-            <Link href={link.url}>{link.text}</Link>
+            <NavLink href={link.url} active={asPath === link.url}>
+              <a>{link.text}</a>
+            </NavLink>
           </Box>
         ))}
       </HStack>
     </Box>
+  )
+}
+
+const NavLink: React.FC<{ href: string; active: boolean }> = ({
+  href,
+  active,
+  children,
+}): JSX.Element => {
+  const child = React.Children.only(children)
+
+  return (
+    <Link href={href} passHref>
+      {React.cloneElement(child as React.ReactElement, {
+        'aria-current': active ? 'page' : null,
+      })}
+    </Link>
   )
 }
 
