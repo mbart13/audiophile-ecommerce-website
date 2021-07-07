@@ -16,7 +16,7 @@ const Hero = (): JSX.Element => {
       textAlign={{ base: 'center', lg: 'left' }}
     >
       <MotionBox
-        initial={{ opacity: 1 }}
+        initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.5, duration: '2' }}
         _after={{
@@ -42,7 +42,7 @@ const Hero = (): JSX.Element => {
       <MotionContainer
         maxW="container.lg"
         px={6}
-        initial={{ opacity: 1 }}
+        initial={{ opacity: 0 }}
         animate={{
           opacity: 1,
           transition: {
