@@ -23,7 +23,7 @@ const FadeInOnScroll: React.FC<FadeInOnScrollProps> = ({
     <motion.div
       ref={ref}
       animate={controls}
-      initial="hidden"
+      initial="visible"
       transition={transition}
       variants={{
         visible: { opacity: 1 },
