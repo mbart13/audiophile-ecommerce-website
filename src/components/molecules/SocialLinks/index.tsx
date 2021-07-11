@@ -16,6 +16,8 @@ const SocialLinks = (): JSX.Element => {
         href="https://www.facebook.com"
         variant="unstyled"
         aria-label="Follow us on Facebook"
+        target="_blank"
+        rel="noopener noreferrer"
         icon={
           <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg">
             <path
