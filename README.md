@@ -101,7 +101,7 @@ The basic way of pre-fetching data is with a function called getStaticProps. Nex
 
 One problem that I encountered had to do with styling of the currently active link in navigation menu and adding aria-current="page" attribute. With React and React Router it was easy as it comes with special NavLink component. In Next.js it's not so easy, according to [this stack overflow answer](https://stackoverflow.com/questions/53262263/target-active-link-when-the-route-is-active-in-next-js) it requires creating your own component that would wrap Next's 'Link' component. This seemed overly complicated to me and was wondering if there is an easier way.
 
-Then it hit me that I'm already using array of objects representing navlinks that I iterate over in a few places in my application (header, footer, secondary nav) that looks like this:
+Then I figured that I'm already using array of objects representing navlinks that I can iterate over in a few places in my application (header, footer, secondary nav) that looks like this:
 
 ```js
 export const links = [
@@ -131,7 +131,7 @@ export const links = [
 ]
 ```
 
-I figured that I can easily use it to style active link. All I had to do was to use useRouter hook that comes with next.js and returns [the path (including the query) shown in the browser](https://nextjs.org/docs/api-reference/next/router) and add this line to the existing code: 'color={asPath === link.url ? 'accent' : 'white'}
+I realized I can easily use it to style active link. All I had to do was to use useRouter hook that comes with next.js and returns [the path (including the query) shown in the browser](https://nextjs.org/docs/api-reference/next/router) and add this line to the existing code: 'color={asPath === link.url ? 'accent' : 'white'}
 However, adding 'aria-current' attribute required creating custom wrapper, so in the end NavLinks component ended up looking like this:
 
 ```js
