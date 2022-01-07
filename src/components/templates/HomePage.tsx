@@ -3,7 +3,7 @@ import { Container } from '@chakra-ui/react'
 import Hero from 'components/organisms/Hero'
 import CategoriesLinks from 'components/organisms/CategoriesLinks'
 import MainGallery from 'components/organisms/MainGallery'
-import BestGear from 'components/molecules/BestGear'
+import AnimatedBestGear from 'components/molecules/AnimatedBestGear'
 
 const HomePage = (): JSX.Element => {
   return (
@@ -12,7 +12,7 @@ const HomePage = (): JSX.Element => {
       <Container maxW="container.lg" px={6}>
         <CategoriesLinks />
         <MainGallery />
-        <BestGear />
+        <AnimatedBestGear />
       </Container>
     </main>
   )
